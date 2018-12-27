@@ -66,10 +66,10 @@ class Leagues(models.Model):
 
 class Teams(models.Model):
     name = models.CharField(max_length=200)
-    coach =  models.ForeignKey(Users, on_delete=None)
+    coach =  models.ForeignKey(Users, on_delete=None, null=True, blank=True)
     date =  models.DateField()
-    league = models.ForeignKey(Leagues, on_delete=None)
-    stadium = models.ForeignKey(Stadiums, on_delete=None)
+    league = models.ForeignKey(Leagues, on_delete=None, null=True, blank=True)
+    stadium = models.ForeignKey(Stadiums, on_delete=None, null=True, blank=True)
     mmr = models.IntegerField() #match making rating
 
 class Matchs(models.Model):
