@@ -67,18 +67,19 @@ class Leagues(models.Model):
 class Teams(models.Model):
     name = models.CharField(max_length=200)
     coach =  models.ForeignKey(Users, on_delete=None, null=True, blank=True)
-    date =  models.DateField()
+    date =  models.DateField(auto_now_add=True)
     league = models.ForeignKey(Leagues, on_delete=None, null=True, blank=True)
     stadium = models.ForeignKey(Stadiums, on_delete=None, null=True, blank=True)
     mmr = models.IntegerField() #match making rating
 
 class Matchs(models.Model):
     league = models.ForeignKey(Leagues, on_delete=None)
-    date =  models.DateTimeField()
-    result =  models.CharField(max_length=200)
+    date =  models.DateTimeField(null=True)
+    stadium = models.ForeignKey(Stadiums, on_delete=None, null=True, blank=True)
     home =  models.ForeignKey(Teams, on_delete=None, related_name="home")
     away =  models.ForeignKey(Teams, on_delete=None, related_name="away")
-    scorer = models.ForeignKey(Members, on_delete=None)
+    hscore = models.IntegerField(null=True, blank=True)
+    ascore = models.IntegerField(null=True, blank=True)
 
 class MemberAbility(models.Model):
     name = models.CharField(max_length=200)

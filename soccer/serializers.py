@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from soccer import models
+from . import models
 
 class LeaguesSerializer(serializers.ModelSerializer):
     class Meta:

@@ -32,6 +32,7 @@ admin_router.register(r'nations', views.NationsViewSet)
 admin_router.register(r'positions', views.PositionsViewSet)
 admin_router.register(r'roles', views.RolesViewset)
 admin_router.register(r'stadiums', views.StadiumsViewset)
+admin_router.register(r'teams', views.TeamsViewset)
 admin_router.register(r'users', views.UsersViewset)
 
 urlpatterns = [
