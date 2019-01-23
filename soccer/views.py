@@ -3,6 +3,8 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import permissions
 
+from django.views.generic import TemplateView
+
 from . import models
 from . import serializers
 # Create your views here.
@@ -56,3 +58,9 @@ class UsersViewset(viewsets.ModelViewSet):
     queryset = models.Users.objects.all()
     serializer_class = serializers.UsersSerializer
 
+class IndexView(TemplateView):
+    template_name = 'soccer/index.html'
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['Title'] = 'Index'
+        return context

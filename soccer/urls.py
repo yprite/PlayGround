@@ -36,5 +36,6 @@ admin_router.register(r'teams', views.TeamsViewset)
 admin_router.register(r'users', views.UsersViewset)
 
 urlpatterns = [
+        url(r'^$', views.IndexView.as_view(), name='index'),
         url(r'^admin/', include(admin_router.urls), name='admin'),
 ]

@@ -48,12 +48,19 @@ TEAMS['league']=''
 TEAMS['stadium']=''
 TEAMS['mmr']=''
 
+LEAGUES = collections.OrderedDict()
+LEAGUES['name']=''
+LEAGUES['nation']=''
+LEAGUES['description']=''
+LEAGUES['level']=''
+
 MODLES = {
         'Levels' : LEVELS,
         'Nations' : NATIONS,
         'Stadiums' : STADIUMS,
-        'Teams' : TEAMS
-        }
+        'Teams' : TEAMS,
+        'Leagues' : LEAGUES
+    }
 
 
 def curl_post(url, data, cookie):

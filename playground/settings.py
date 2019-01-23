@@ -26,12 +26,13 @@ SECRET_KEY = 'j(_mkw50hm9at_y=%6)v5z)_^-*0^lmw+)c6q6b*ugo1%(rumy'
 DEBUG = True
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', '210.89.189.125']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    #    'channels', # avoid to collision with apps:python3.5
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'soccer',
+    'bootstrap4',
+    #    'chat', : python3.5
 ]
 
 MIDDLEWARE = [
@@ -138,3 +141,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
+# Channels
+ASGI_APPLICATION = 'playground.routing.application'

@@ -19,5 +19,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^playground/soccer/', include('soccer.urls', namespace='soccer')),
+    url(r'', include('chat.urls', namespace='chat')),
+    url(r'soccer/', include('soccer.urls', namespace='soccer')),
+    #url(r'^playground/soccer/', include('soccer.urls', namespace='soccer')),
 ]
