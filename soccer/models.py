@@ -5,6 +5,8 @@ from django.db import models
 class Roles(models.Model):
    name = models.CharField(max_length=200) 
    privilege = models.CharField(max_length=200)
+   def __str__(self):
+       return self.name
 
 class Levels(models.Model):
     #S:Real Madrid,Barcellona
@@ -17,12 +19,16 @@ class Levels(models.Model):
 
 class Nations(models.Model):
     name = models.CharField(max_length=200)
+    def __str__(self):
+        return self.name
 
 class Users(models.Model):
     name = models.CharField(max_length=200)
     mail = models.CharField(max_length=200) #ACCOUNUT, SNS ACCOUNT
     nation = models.ForeignKey(Nations, on_delete=None)
     role = models.ForeignKey(Roles, on_delete=None)
+    def __str__(self):
+        return self.name
 
 class Positions(models.Model):
     GK = 0
@@ -44,6 +50,8 @@ class Positions(models.Model):
 
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
+    def __str__(self):
+        return self.name
 
 class Members(models.Model):
     users = models.ForeignKey(Users, on_delete=None)
@@ -52,17 +60,23 @@ class Members(models.Model):
     nation = models.ForeignKey(Nations, on_delete=None)
     myteam = models.CharField(max_length=200)   #TODO:Need to decide one team or some teams
 #    favteam = models.CharField(max_length=200)  #TODO:Fixed multiple selection.
+    def __str__(self):
+        return self.users.name
 
 class Stadiums(models.Model):
     name = models.CharField(max_length=200)
     nation = models.ForeignKey(Nations, on_delete=None)
     city = models.CharField(max_length=200)
+    def __str__(self):
+        return self.name
 
 class Leagues(models.Model):
     name = models.CharField(max_length=200)
     nation = models.ForeignKey(Nations, on_delete=None)
     description = models.CharField(max_length=200)
     level = models.ForeignKey(Levels, on_delete=None)    
+    def __str__(self):
+        return self.name
 
 class Teams(models.Model):
     name = models.CharField(max_length=200)
@@ -70,19 +84,56 @@ class Teams(models.Model):
     date =  models.DateField(auto_now_add=True)
     league = models.ForeignKey(Leagues, on_delete=None, null=True, blank=True)
     stadium = models.ForeignKey(Stadiums, on_delete=None, null=True, blank=True)
-    mmr = models.IntegerField() #match making rating
+    ranking = models.IntegerField(null=True)
+    mmr = models.IntegerField(null=True, blank=True) #match making rating
+    def __str__(self):
+        return self.name
 
 class Matchs(models.Model):
-    league = models.ForeignKey(Leagues, on_delete=None)
-    date =  models.DateTimeField(null=True)
+    seq = models.CharField(max_length=200, null=True)
+    code = models.CharField(max_length=200, null=True)
+    league = models.ForeignKey(Leagues, on_delete=None, null=True, blank=True)
+    date =  models.CharField(max_length=200, null=True)
+    #date =  models.DateTimeField(null=True)
     stadium = models.ForeignKey(Stadiums, on_delete=None, null=True, blank=True)
-    home =  models.ForeignKey(Teams, on_delete=None, related_name="home")
-    away =  models.ForeignKey(Teams, on_delete=None, related_name="away")
+    home =  models.ForeignKey(Teams, on_delete=None, related_name="home", null=True, blank=True) #TODO:Change not null
+    away =  models.ForeignKey(Teams, on_delete=None, related_name="away", null=True, blank=True) #TODO:Change not null
+    #TODO:Insert state field (0:NOT YET, 1:ING, 2:END) 
     hscore = models.IntegerField(null=True, blank=True)
     ascore = models.IntegerField(null=True, blank=True)
+    def __str__(self):
+        return '%s vs %s' % (self.home, self.away)
+
+class MatchPredictVariables(models.Model):
+    match = models.ForeignKey(Matchs, on_delete=None)
+    h_x1 = models.FloatField(null=True, blank=True, default=None)
+    h_x2 = models.FloatField(null=True, blank=True, default=None)
+    h_x3 = models.FloatField(null=True, blank=True, default=None)
+    h_x4 = models.FloatField(null=True, blank=True, default=None)
+    h_x5 = models.FloatField(null=True, blank=True, default=None)
+    h_x6 = models.FloatField(null=True, blank=True, default=None)
+    a_x1 = models.FloatField(null=True, blank=True, default=None)
+    a_x2 = models.FloatField(null=True, blank=True, default=None)
+    a_x3 = models.FloatField(null=True, blank=True, default=None)
+    a_x4 = models.FloatField(null=True, blank=True, default=None)
+    a_x5 = models.FloatField(null=True, blank=True, default=None)
+    a_x6 = models.FloatField(null=True, blank=True, default=None)
+    def __str__(self):
+        return str(self.match)
+
+class Weigth(models.Model): #TODO: Fix name.
+    w1 = models.FloatField(null=True, blank=True, default=None)
+    w2 = models.FloatField(null=True, blank=True, default=None)
+    w3 = models.FloatField(null=True, blank=True, default=None)
+    w4 = models.FloatField(null=True, blank=True, default=None)
+    w5 = models.FloatField(null=True, blank=True, default=None)
+    w6 = models.FloatField(null=True, blank=True, default=None)
+
 
 class MemberAbility(models.Model):
     name = models.CharField(max_length=200)
+    def __str__(self):
+        return self.name
 
 class MemberHistory(models.Model):
     player = models.ForeignKey(Members, on_delete=None)

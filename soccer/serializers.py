@@ -50,3 +50,11 @@ class UsersSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Users
         fields = '__all__'
+class MatchPredictVariableSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.MatchPredictVariables
+        fields = '__all__'
+class WeightSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Weigth
+        fields = '__all__'

@@ -20,22 +20,32 @@ from django.contrib import admin
 from rest_framework import routers
 
 from . import views
+from . import rest_views
 
 admin_router = routers.DefaultRouter()
-admin_router.register(r'leagues', views.LeaguesViewSet)
-admin_router.register(r'levels', views.LevelsViewSet)
-admin_router.register(r'matchs', views.MatchsViewSet)
-admin_router.register(r'member_ability', views.MemberAbilityViewSet)
-admin_router.register(r'member_history', views.MemberHistoryViewSet)
-admin_router.register(r'members', views.MembersViewSet)
-admin_router.register(r'nations', views.NationsViewSet)
-admin_router.register(r'positions', views.PositionsViewSet)
-admin_router.register(r'roles', views.RolesViewset)
-admin_router.register(r'stadiums', views.StadiumsViewset)
-admin_router.register(r'teams', views.TeamsViewset)
-admin_router.register(r'users', views.UsersViewset)
+admin_router.register(r'leagues', rest_views.LeaguesViewSet)
+admin_router.register(r'levels', rest_views.LevelsViewSet)
+admin_router.register(r'matchs', rest_views.MatchsViewSet)
+admin_router.register(r'member_ability', rest_views.MemberAbilityViewSet)
+admin_router.register(r'member_history', rest_views.MemberHistoryViewSet)
+admin_router.register(r'members', rest_views.MembersViewSet)
+admin_router.register(r'nations', rest_views.NationsViewSet)
+admin_router.register(r'positions', rest_views.PositionsViewSet)
+admin_router.register(r'roles', rest_views.RolesViewset)
+admin_router.register(r'stadiums', rest_views.StadiumsViewset)
+admin_router.register(r'teams', rest_views.TeamsViewset)
+admin_router.register(r'users', rest_views.UsersViewset)
+admin_router.register(r'predict', rest_views.MatchPredictVariableViewSet)
+admin_router.register(r'weight', rest_views.WeightViewSet) #TODO: Change view class name
 
 urlpatterns = [
-        url(r'^$', views.IndexView.as_view(), name='index'),
+        ##WEB VIEW
+        url(r'^$', views.HomePageView.as_view(), name='home'),
+
+        ##REST VIEW
         url(r'^admin/', include(admin_router.urls), name='admin'),
+        url(r'^v1/teams/name/(?P<team_name>.*)/$', rest_views.TeamViewSetByName.as_view(),
+            name='v1_teams_name'),
+        url(r'^v1/matchs/code/(?P<code>.*)/$', rest_views.MatchViewSetByCode.as_view(),
+            name='v1_matchs_code'),
 ]

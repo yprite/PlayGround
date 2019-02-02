@@ -1,0 +1,542 @@
+<class 'bs4.element.ResultSet'>
+<div class="score_tbl_st1">
+<h2 class="score_pop_tit"><b>상대전적분석</b></h2>
+<table border="1">
+<thead>
+<tr><td>경기</td><td>시간</td><td>홈팀</td><td>점수</td><td>원정팀</td><td class="th_br">언/<br/>오버<br/>(2.5골)</td><td>전반</td><td class="th_br">언/<br/>오버<br/>(0.5골)</td></tr>
+</thead>
+<tbody>
+<tr>
+<td bgcolor="#289DFC" class="game">ARG Cup</td>
+<td>19-01-21</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">1-1</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="green">U</font></td>
+<td>1-1</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="#103A96" class="game">ARG D3FA</td>
+<td>18-11-29</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">0-0</td>
+<td class="visitor">Sansinena</td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr><tr>
+<td bgcolor="#103A96" class="game">ARG D3FA</td>
+<td>18-10-11</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">0-0</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> <tr>
+<td colspan="8">
+</td>
+</tr><tr>
+<td bgcolor="#289DFC" class="game">ARG Cup</td>
+<td>18-01-24</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">0-0</td>
+<td class="visitor">Sansinena</td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr><tr>
+<td bgcolor="#289DFC" class="game">ARG Cup</td>
+<td>18-01-20</td>
+<td class="hometeam"><font color="#FF0000">Sansinena</font></td>
+<td class="score"><font color="#FF0000">4</font>-0</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="red">O</font></td>
+<td>2-0</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="#103A96" class="game">ARG D3FA</td>
+<td>17-11-29</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">1-1</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="green">U</font></td>
+<td>0-1</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="#103A96" class="game">ARG D3FA</td>
+<td>17-10-15</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">0-0</td>
+<td class="visitor">Sansinena</td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> </tbody>
+</table>
+<p>
+	총 7경기, Villa Mitre : <span class="red">0</span>승(<span class="red">0.00%</span>), 6무(85.71%%), <span class="green">1</span>패(<span class="green">14.29%</span>%) <br>
+	총 <span class="red">1</span>경기 오버, <span class="green">6</span>경기 언더 
+</br></p> </div>
+********************************************************************************************************************************************************************************************************
+[<p>
+	총 7경기, Villa Mitre : <span class="red">0</span>승(<span class="red">0.00%</span>), 6무(85.71%%), <span class="green">1</span>패(<span class="green">14.29%</span>%) <br>
+	총 <span class="red">1</span>경기 오버, <span class="green">6</span>경기 언더 
+</br></p>]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<div class="score_tbl_st1">
+<h2 class="score_pop_tit"><b>Villa Mitre - 홈팀 최근경기 결과</b></h2>
+<div class="score_top_pop" id="score_top">
+<ul class="btn_ar">
+<li class="first">
+<a class="on">전체</a>
+<a data="Villa Mitre">홈일때</a>
+</li>
+</ul>
+</div>
+<table border="1">
+<thead>
+<tr><td>경기</td><td>시간</td><td>홈팀</td><td>점수</td><td>원정팀</td><td> - </td><td class="th_br">언/<br/>오버<br/>(2.5골)</td><td>전반</td><td class="th_br">언/<br/>오버<br/>(0.5골)</td></tr>
+</thead>
+<tbody>
+<tr>
+<td bgcolor="289DFC" class="game">ARG Cup</td>
+<td>19-01-21</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">1-1</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>1-1</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-12-11</td>
+<td class="hometeam"><font color="#FF0000">Villa Mitre</font></td>
+<td class="score"><font color="#FF0000">3</font>-1</td>
+<td class="visitor">Independiente Neuquen</td>
+<td><font color="red">승</font></td>
+<td><font color="red">O</font></td>
+<td>2-1</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-11-29</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">0-0</td>
+<td class="visitor">Sansinena</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-11-19</td>
+<td class="hometeam"><font color="#FF0000">Villa Mitre</font></td>
+<td class="score"><font color="#FF0000">2</font>-0</td>
+<td class="visitor">Ferro Carril Oeste (GP)</td>
+<td><font color="red">승</font></td>
+<td><font color="green">U</font></td>
+<td>2-0</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-11-08</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">1-1</td>
+<td class="visitor">Alvarado Mar del Plata</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>1-1</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-10-15</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">0-<font color="#FF0000">1</font></td>
+<td class="visitor"><font color="#FF0000">Sol de Mayo</font></td>
+<td><font color="green">패</font></td>
+<td><font color="green">U</font></td>
+<td>0-1</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-10-11</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">0-0</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-09-19</td>
+<td class="hometeam">Alvarado Mar del Plata</td>
+<td class="score">2-2</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="blue">무</font></td>
+<td><font color="red">O</font></td>
+<td>1-1</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-09-10</td>
+<td class="hometeam"><font color="#FF0000">Villa Mitre</font></td>
+<td class="score"><font color="#FF0000">1</font>-0</td>
+<td class="visitor">Club Cipolletti</td>
+<td><font color="red">승</font></td>
+<td><font color="green">U</font></td>
+<td>1-0</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-04-09</td>
+<td class="hometeam"><font color="#FF0000">Chaco For Ever</font></td>
+<td class="score"><font color="#FF0000">2</font>-0</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="green">패</font></td>
+<td><font color="green">U</font></td>
+<td>1-0</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-03-13</td>
+<td class="hometeam">Gimnasia Mendoza</td>
+<td class="score">2-2</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="blue">무</font></td>
+<td><font color="red">O</font></td>
+<td>1-1</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-02-26</td>
+<td class="hometeam"><font color="#FF0000">Estudiantes Rio Cuarto</font></td>
+<td class="score"><font color="#FF0000">1</font>-0</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="green">패</font></td>
+<td><font color="green">U</font></td>
+<td>1-0</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-02-19</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">1-1</td>
+<td class="visitor">Ferro Carril Oeste (GP)</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-02-05</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">0-<font color="#FF0000">1</font></td>
+<td class="visitor"><font color="#FF0000">CA Juventud Unida San Luis</font></td>
+<td><font color="green">패</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr><tr>
+<td bgcolor="289DFC" class="game">ARG Cup</td>
+<td>18-01-24</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">0-0</td>
+<td class="visitor">Sansinena</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr><tr>
+<td bgcolor="289DFC" class="game">ARG Cup</td>
+<td>18-01-20</td>
+<td class="hometeam"><font color="#FF0000">Sansinena</font></td>
+<td class="score"><font color="#FF0000">4</font>-0</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="green">패</font></td>
+<td><font color="red">O</font></td>
+<td>2-0</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-12-11</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">1-<font color="#FF0000">2</font></td>
+<td class="visitor"><font color="#FF0000">데포르티보 로카</font></td>
+<td><font color="green">패</font></td>
+<td><font color="red">O</font></td>
+<td>1-1</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-12-07</td>
+<td class="hometeam">Ferro Carril Oeste (GP)</td>
+<td class="score">0-<font color="#FF0000">1</font></td>
+<td class="visitor"><font color="#FF0000">Villa Mitre</font></td>
+<td><font color="red">승</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-12-02</td>
+<td class="hometeam"><font color="#FF0000">Villa Mitre</font></td>
+<td class="score"><font color="#FF0000">2</font>-0</td>
+<td class="visitor">Rivadavia Lincoln</td>
+<td><font color="red">승</font></td>
+<td><font color="green">U</font></td>
+<td>1-0</td>
+<td><font color="red">O</font></td>
+</tr><tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-11-29</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">1-1</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-1</td>
+<td><font color="red">O</font></td>
+</tr> </tbody>
+</table>
+<p>
+	총 20경기, Villa Mitre : <span class="red">5</span>승(<span class="red">25.00%%</span>), 9무(45.00%%), <span class="green">6</span>패(<span class="green">30.00%</span>%) <br>
+	총 <span class="red">5</span>경기 오버, <span class="green">15</span>경기 언더 
+</br></p> </div>
+********************************************************************************************************************************************************************************************************
+[<p>
+	총 20경기, Villa Mitre : <span class="red">5</span>승(<span class="red">25.00%%</span>), 9무(45.00%%), <span class="green">6</span>패(<span class="green">30.00%</span>%) <br>
+	총 <span class="red">5</span>경기 오버, <span class="green">15</span>경기 언더 
+</br></p>]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<div class="score_tbl_st1">
+<h2 class="score_pop_tit"><b>Sansinena  - 원정팀 최근경기 결과</b></h2>
+<div class="score_top_pop" id="score_top">
+<ul class="btn_ar">
+<li class="first">
+<a class="on">전체</a>
+<a data="Sansinena">원정일때</a>
+</li>
+</ul>
+</div>
+<table border="1">
+<thead>
+<tr>
+<td>경기</td><td>시간</td><td>홈팀</td><td>점수</td><td>원정팀</td><td> - </td><td class="th_br">언/<br/>오버<br/>(2.5골)</td><td>전반</td><td class="th_br">언/<br/>오버<br/>(0.5골)</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td bgcolor="289DFC" class="game">ARG Cup</td>
+<td>19-01-21</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">1-1</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>1-1</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-12-11</td>
+<td class="hometeam">데포르티보 로카</td>
+<td class="score">0-<font color="#FF0000">1</font></td>
+<td class="visitor"><font color="#FF0000">Sansinena</font></td>
+<td><font color="red">승</font></td>
+<td><font color="green">U</font></td>
+<td>0-1</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-12-04</td>
+<td class="hometeam"><font color="#FF0000">Sansinena</font></td>
+<td class="score"><font color="#FF0000">2</font>-1</td>
+<td class="visitor">Alvarado Mar del Plata</td>
+<td><font color="red">승</font></td>
+<td><font color="red">O</font></td>
+<td>1-0</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-11-29</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">0-0</td>
+<td class="visitor">Sansinena</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-11-24</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">2-2</td>
+<td class="visitor">Club Cipolletti</td>
+<td><font color="blue">무</font></td>
+<td><font color="red">O</font></td>
+<td>1-1</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-11-19</td>
+<td class="hometeam">Independiente Neuquen</td>
+<td class="score">1-<font color="#FF0000">2</font></td>
+<td class="visitor"><font color="#FF0000">Sansinena</font></td>
+<td><font color="red">승</font></td>
+<td><font color="red">O</font></td>
+<td>0-1</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-10-11</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">0-0</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-09-10</td>
+<td class="hometeam">Ferro Carril Oeste (GP)</td>
+<td class="score">1-1</td>
+<td class="visitor">Sansinena</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-1</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-02-20</td>
+<td class="hometeam">Independiente Neuquen</td>
+<td class="score">1-1</td>
+<td class="visitor">Sansinena</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>18-02-05</td>
+<td class="hometeam">Club Cipolletti</td>
+<td class="score">0-<font color="#FF0000">1</font></td>
+<td class="visitor"><font color="#FF0000">Sansinena</font></td>
+<td><font color="red">승</font></td>
+<td><font color="green">U</font></td>
+<td>0-1</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="289DFC" class="game">ARG Cup</td>
+<td>18-01-31</td>
+<td class="hometeam"><font color="#FF0000">Alvarado Mar del Plata</font></td>
+<td class="score"><font color="#FF0000">1</font>-0</td>
+<td class="visitor">Sansinena</td>
+<td><font color="green">패</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> <tr>
+<td bgcolor="289DFC" class="game">ARG Cup</td>
+<td>18-01-28</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">0-0</td>
+<td class="visitor">Alvarado Mar del Plata</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> <tr>
+<td bgcolor="289DFC" class="game">ARG Cup</td>
+<td>18-01-24</td>
+<td class="hometeam">Villa Mitre</td>
+<td class="score">0-0</td>
+<td class="visitor">Sansinena</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> <tr>
+<td bgcolor="289DFC" class="game">ARG Cup</td>
+<td>18-01-20</td>
+<td class="hometeam"><font color="#FF0000">Sansinena</font></td>
+<td class="score"><font color="#FF0000">4</font>-0</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="red">승</font></td>
+<td><font color="red">O</font></td>
+<td>2-0</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-12-11</td>
+<td class="hometeam"><font color="#FF0000">Club Cipolletti</font></td>
+<td class="score"><font color="#FF0000">3</font>-0</td>
+<td class="visitor">Sansinena</td>
+<td><font color="green">패</font></td>
+<td><font color="red">O</font></td>
+<td>2-0</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-12-03</td>
+<td class="hometeam">Alvarado Mar del Plata</td>
+<td class="score">1-1</td>
+<td class="visitor">Sansinena</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-11-29</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">1-1</td>
+<td class="visitor">Villa Mitre</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-1</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-11-20</td>
+<td class="hometeam"><font color="#FF0000">Sansinena</font></td>
+<td class="score"><font color="#FF0000">2</font>-0</td>
+<td class="visitor">데포르티보 로카</td>
+<td><font color="red">승</font></td>
+<td><font color="green">U</font></td>
+<td>1-0</td>
+<td><font color="red">O</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-11-12</td>
+<td class="hometeam"><font color="#FF0000">Sansinena</font></td>
+<td class="score"><font color="#FF0000">1</font>-0</td>
+<td class="visitor">Rivadavia Lincoln</td>
+<td><font color="red">승</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> <tr>
+<td bgcolor="103A96" class="game">ARG D3FA</td>
+<td>17-10-30</td>
+<td class="hometeam">Sansinena</td>
+<td class="score">0-0</td>
+<td class="visitor">Club Cipolletti</td>
+<td><font color="blue">무</font></td>
+<td><font color="green">U</font></td>
+<td>0-0</td>
+<td><font color="green">U</font></td>
+</tr> </tbody>
+</table>
+<p>
+	총 20경기, Villa Mitre : <span class="red">3</span>승(<span class="red">15.00%%</span>), 11무(55.00%%), <span class="green">6</span>패(<span class="green">30.00%</span>%) <br>
+	총 <span class="red">5</span>경기 오버, <span class="green">15</span>경기 언더 
+</br></p> </div>
+********************************************************************************************************************************************************************************************************
+[<p>
+	총 20경기, Villa Mitre : <span class="red">3</span>승(<span class="red">15.00%%</span>), 11무(55.00%%), <span class="green">6</span>패(<span class="green">30.00%</span>%) <br>
+	총 <span class="red">5</span>경기 오버, <span class="green">15</span>경기 언더 
+</br></p>]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

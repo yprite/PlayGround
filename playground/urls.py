@@ -17,9 +17,22 @@ from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
 
+from soccer import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('chat.urls', namespace='chat')),
+    #url(r'', include('chat.urls', namespace='chat')),
+    #url(r'', include('chat.urls', namespace='chat')),
+    url(r'^$', views.HomePageView.as_view(), name="home"),
+    url(r"^formset$", views.DefaultFormsetView.as_view(), name="formset_default"),
+    url(r"^form$", views.DefaultFormView.as_view(), name="form_default"),
+    url(r"^form_by_field$", views.DefaultFormByFieldView.as_view(), name="form_by_field"),
+    url(r"^form_horizontal$", views.FormHorizontalView.as_view(), name="form_horizontal"),
+    url(r"^form_inline$", views.FormInlineView.as_view(), name="form_inline"),
+    url(r"^form_with_files$", views.FormWithFilesView.as_view(), name="form_with_files"),
+    url(r"^pagination$", views.PaginationView.as_view(), name="pagination"),
+    url(r"^misc$", views.MiscView.as_view(), name="misc"),
+
     url(r'soccer/', include('soccer.urls', namespace='soccer')),
     #url(r'^playground/soccer/', include('soccer.urls', namespace='soccer')),
 ]

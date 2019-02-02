@@ -23,10 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'j(_mkw50hm9at_y=%6)v5z)_^-*0^lmw+)c6q6b*ugo1%(rumy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = False
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', '210.89.189.125']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', '210.89.189.125', 'playfun.kr']
 
 
 # Application definition
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.gis',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'soccer',
     'bootstrap4',
+    'django_crontab',
     #    'chat', : python3.5
 ]
 
@@ -118,6 +121,53 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# logging 
+LOG_FILE  = os.path.join(BASE_DIR, 'log' ,'soccer.log')
+LOGGING = { 
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': { 
+        'format1': {
+            'format': '[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s', 
+            'datefmt': '%d/%b/%Y %H:%M:%S' 
+            },
+        'format2': { 
+            'format': '%(levelname)s %(message)s'
+            }, 
+    }, 
+    'handlers': { 
+        'logfile': { 
+            'level': 'INFO', 
+            'class': 'logging.handlers.RotatingFileHandler', 
+            'filename': LOG_FILE,
+            'formatter': 'format1', 
+            'maxBytes': 10*1024*1024,
+            'backupCount': 20,    
+        },
+        'console': { 
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler', 
+            'formatter': 'format2', 
+        } 
+    }, 
+    'loggers': {
+        'soccer': {
+            'handlers': ['logfile'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    }, 
+}
+
+for name, logger in LOGGING['loggers'].items():
+    logger['level'] = 'INFO' if name == 'django' else 'DEBUG'
+    logger['handlers'].append('console')
+
+
+#Crontab
+CRONJOBS = [
+    ('* */6 * * *', 'soccer.cron.func1')
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
