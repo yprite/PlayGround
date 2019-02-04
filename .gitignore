@@ -1,6 +1,7 @@
-www_static/*
+static/*
 ENV/*
 *.pyc
 *.swp
 db.sqlite3
 settings.json
+log/*
