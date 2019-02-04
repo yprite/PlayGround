@@ -157,9 +157,9 @@ def get_matchs_since_now():
         d['time']= time
         d['code']= str(code)
         d['seq']= str(seq)
-        d['odds_home']= str(odds_home)
-        d['odds_draw']= str(odds_draw)
-        d['odds_away']= str(odds_away)
+        #d['odds_home']= str(odds_home)
+        #d['odds_draw']= str(odds_draw)
+        #d['odds_away']= str(odds_away)
         #t  = get_past_record(session, detail_url)
         #d['history_total']= str(t[0])
         #d['history_win']= str(t[1])

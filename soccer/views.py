@@ -37,7 +37,7 @@ class IndexPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexPageView, self).get_context_data(**kwargs)
         self.get_match_datas()
-        context['matchs'] = models.Matchs.objects.order_by('-date')[:30]
+        context['matchs'] = models.Matchs.objects.order_by('-date')
         return context
 
 #-----------------------------------------------------------------------------------------------------------------------
