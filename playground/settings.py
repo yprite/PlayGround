@@ -27,7 +27,8 @@ SECRET_KEY = 'j(_mkw50hm9at_y=%6)v5z)_^-*0^lmw+)c6q6b*ugo1%(rumy'
 DEBUG = False
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', '210.89.189.125', 'playfun.kr']
+#ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', '210.89.189.125', 'playfun.kr']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'playfun.kr', 'www.playfun.kr']
 
 
 # Application definition
