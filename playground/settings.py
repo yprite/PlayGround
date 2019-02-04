@@ -164,7 +164,7 @@ for name, logger in LOGGING['loggers'].items():
     logger['handlers'].append('console')
 
 
-Crontab
+#Crontab
 CRONJOBS = [
     ('* */6 * * *', 'soccer.cron.func1')
 ]
