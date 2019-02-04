@@ -41,6 +41,7 @@ admin_router.register(r'weight', rest_views.WeightViewSet) #TODO: Change view cl
 urlpatterns = [
         ##WEB VIEW
         url(r'^$', views.HomePageView.as_view(), name='home'),
+        url(r'^index/', views.IndexPageView.as_view(), name='index'),
 
         ##REST VIEW
         url(r'^admin/', include(admin_router.urls), name='admin'),

@@ -21,12 +21,29 @@ from .forms import ContactForm, FilesForm, ContactFormSet
 logger = logging.getLogger(__name__)
 
 # http://yuji.wordpress.com/2013/01/30/django-form-field-in-initial-data-requires-a-fieldfile-instance/
+
+
+
+class IndexPageView(TemplateView):
+    template_name = "soccer/index.html"
+
+    def get_match_datas(self):
+        matchs = []
+        objs = models.Matchs.objects.all()
+        for obj in objs:
+            logger.debug("match : %s (%s)" % (obj, obj.date))
+        return matchs
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexPageView, self).get_context_data(**kwargs)
+        self.get_match_datas()
+        context['matchs'] = models.Matchs.objects.order_by('-date')[:30]
+        return context
+
+#-----------------------------------------------------------------------------------------------------------------------
 class FakeField(object):
     storage = default_storage
-
-
 fieldfile = FieldFile(None, FakeField, "dummy.txt")
-
 
 class HomePageView(TemplateView):
     template_name = "soccer/home.html"

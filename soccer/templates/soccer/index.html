@@ -1,0 +1,81 @@
+{% load static %}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'soccer/index.css' %}">
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="page-header text-center">
+        <h1 id="timeline">Today Match</h1>
+    </div>
+    <ul class="timeline">
+        {% for match in matchs %}
+        {% if forloop.counter|divisibleby:2 %}
+            <li>
+              <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <!--<img class="img-responsive" src="http://dailypost.ng/wp-content/uploads/2018/05/images-28.jpg" />-->
+                  
+                </div>
+                <div class="timeline-body">
+                  <p> {{ match }} </p>
+                  <p> {{ match.date }}</p>
+                  
+                </div>
+                
+                <div class="timeline-footer">
+                    <a><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                    <a><i class="glyphicon glyphicon-share"></i></a>
+                    <a class="pull-right">Continuar Lendo</a>
+                </div>
+              </div>
+            </li>
+          {% else %}
+            <li  class="timeline-inverted">
+              <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record invert" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <!--<img class="img-responsive" src="http://dailypost.ng/wp-content/uploads/2018/05/images-28.jpg" />-->
+                  
+                </div>
+                <div class="timeline-body">
+                    <p> {{ match }} </p>
+                    <p> {{ match.date }}</p>
+                 
+                </div>
+                
+                <div class="timeline-footer">
+                    <a><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                    <a><i class="glyphicon glyphicon-share"></i></a>
+                    <a class="pull-right">Continuar Lendo</a>
+                </div>
+              </div>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+        <li class="clearfix" style="float: none;"></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var my_posts = $("[rel=tooltip]");
+
+        var size = $(window).width();
+        for(i=0;i<my_posts.length;i++){
+            the_post = $(my_posts[i]);
+
+            if(the_post.hasClass('invert') && size >=767 ){
+                the_post.tooltip({ placement: 'left'});
+                the_post.css("cursor","pointer");
+            }else{
+                the_post.tooltip({ placement: 'rigth'});
+                the_post.css("cursor","pointer");
+            }
+        }
+    });
+</script>

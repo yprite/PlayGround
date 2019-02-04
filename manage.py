@@ -1,8 +1,15 @@
 #!/usr/bin/env python
+import getpass
 import os
 import sys
 
+
+USER = 'yprite'
+
 if __name__ == "__main__":
+    if getpass.getuser() == USER:
+        print ("Error: Please Staging Mode")
+        sys.exit(1)
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "playground.settings")
     try:
         from django.core.management import execute_from_command_line
