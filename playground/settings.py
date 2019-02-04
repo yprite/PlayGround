@@ -164,10 +164,10 @@ for name, logger in LOGGING['loggers'].items():
     logger['handlers'].append('console')
 
 
-#Crontab
-#CRONJOBS = [
-#    ('* */6 * * *', 'soccer.cron.func1')
-#]
+Crontab
+CRONJOBS = [
+    ('* */6 * * *', 'soccer.cron.func1')
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
