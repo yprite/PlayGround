@@ -1,15 +1,14 @@
 #https://beomi.github.io/2017/01/20/HowToMakeWebCrawler-With-Login/
 
-import io
-import time
-import datetime
-import requests
-import json
-import pycurl
-import collections
-import logging
-
 from bs4 import BeautifulSoup
+import collections
+import datetime
+import io
+import json
+import logging
+import pycurl
+import requests
+
 
 FILE_PATH = '/home/yprite/playground/soccer/tools/match_records/'
 
@@ -124,7 +123,16 @@ MATCHINFO['away_recent_loss']=''
 def get_matchs_since_now():
     records = []
     session = requests.Session()
-    req = session.get('https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=&reg_id=&data=')
+
+    now = datetime.datetime.now()
+    now_date = now.strftime('%Y-%m-%d')
+    next = now + datetime.timedelta(days=1)
+
+    #url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=&reg_id=&data='
+    url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=' + next.strftime('%Y-%m-%d') + '&reg_id=&data='
+    req = session.get(url)
+
+    logger.info('url : ' + url)
 
     html = req.text
 
@@ -134,9 +142,7 @@ def get_matchs_since_now():
     for i, item in enumerate(matchs):
         home_team = item['home_name']
         away_team = item['away_name']
-        now = datetime.datetime.now()
-        now_date = now.strftime('%Y-%m-%d')
-        time = now_date + ' ' + item['time'] + ':00'
+        time = next.strftime('%Y-%m-%d') + ' ' + item['time'] + ':00'
         code= item['code']
         seq = item['seq']
         odds_home = 0

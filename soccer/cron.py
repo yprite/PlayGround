@@ -47,7 +47,7 @@ def set_future_match_data():
             logger.info("%s get_or_crate [SUCCSS]", a_team.name)
     
         match, match_is_created = models.Matchs.objects.get_or_create(code=t['code'])
-        if match_is_created:
+        if not match_is_created:
             logger.info("%s get_or_crate [SUCCSS]", match.code)
             match.seq = t['seq']
             match.date = t['time']
@@ -95,3 +95,9 @@ def set_future_match_data():
 
 def func1():
     set_future_match_data()
+
+def func2():
+    now = datetime.datetime.now()
+    now_date = now.strftime('%Y-%m-%d')
+    next_date = now_date + datetime.timedelta(days=1)
+    print (next_date)
