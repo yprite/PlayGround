@@ -160,11 +160,6 @@ LOGGING = {
     }, 
 }
 
-for name, logger in LOGGING['loggers'].items():
-    logger['level'] = 'INFO' if name == 'django' else 'DEBUG'
-    logger['handlers'].append('console')
-
-
 #Crontab
 CRONJOBS = [
     ('* */6 * * *', 'soccer.cron.func1')
