@@ -34,5 +34,6 @@ urlpatterns = [
     url(r"^misc$", views.MiscView.as_view(), name="misc"),
 
     url(r'soccer/', include('soccer.urls', namespace='soccer')),
+    url(r'^goaccess/', include('goaccess.urls', namespace='goaccess')),
     #url(r'^playground/soccer/', include('soccer.urls', namespace='soccer')),
 ]

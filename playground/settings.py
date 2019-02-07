@@ -157,6 +157,16 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
+        'goaccess': {
+            'handlers': ['logfile'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'django_crontab': {
+            'handlers': ['logfile'],
+            'level': 'INFO',
+            'propagate': True,
+        },
     }, 
 }
 
@@ -189,3 +199,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Channels
 ASGI_APPLICATION = 'playground.routing.application'
+
+# Apache access log file to be used in goaccess
+APACHE_LOG = '/var/log/apache2/playfun.log'
