@@ -2,6 +2,7 @@ static/*
 ENV/*
 *.pyc
 *.swp
+*.swo
 db.sqlite3
 settings.json
 log/*

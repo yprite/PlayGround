@@ -17,6 +17,9 @@ class Levels(models.Model):
     #E:
    name = models.CharField(max_length=200) 
 
+   def __str__(self):
+       return self.name
+
 class Nations(models.Model):
     name = models.CharField(max_length=200)
     def __str__(self):
@@ -72,9 +75,9 @@ class Stadiums(models.Model):
 
 class Leagues(models.Model):
     name = models.CharField(max_length=200)
-    nation = models.ForeignKey(Nations, on_delete=None)
-    description = models.CharField(max_length=200)
-    level = models.ForeignKey(Levels, on_delete=None)    
+    nation = models.ForeignKey(Nations, on_delete=None, null=True, blank=True)
+    description = models.CharField(max_length=200, null=True, blank=True)
+    level = models.ForeignKey(Levels, on_delete=None, null=True, blank=True)    
     def __str__(self):
         return self.name
 

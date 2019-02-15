@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
-    'soccer',
     'bootstrap4',
     'django_crontab',
+
+    'soccer',
+    'comingsoon',
     #    'chat', : python3.5
 ]
 

@@ -103,6 +103,7 @@ def get_past_record(session, detail_url):
 MATCHINFO = collections.OrderedDict()
 MATCHINFO['home_team']=''
 MATCHINFO['away_team']=''
+MATCHINFO['leagueName']=''
 MATCHINFO['time']=''
 MATCHINFO['code']=''
 MATCHINFO['seq']=''
@@ -163,6 +164,7 @@ def get_matchs_since_now():
         d['time']= time
         d['code']= str(code)
         d['seq']= str(seq)
+        d['leagueName'] = str(item['leagueName'])
         #d['odds_home']= str(odds_home)
         #d['odds_draw']= str(odds_draw)
         #d['odds_away']= str(odds_away)

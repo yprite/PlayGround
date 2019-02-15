@@ -40,6 +40,17 @@ class IndexPageView(TemplateView):
         context['matchs'] = models.Matchs.objects.order_by('-date')
         return context
 
+class DetailPageView(TemplateView):
+    template_name = "soccer/detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailPageView, self).get_context_data(**kwargs)
+        code = context['match_id']
+        _a = models.Matchs.objects.get(code=code)
+        logger.debug(_a)
+        context['info'] = _a
+        return context
+
 #-----------------------------------------------------------------------------------------------------------------------
 class FakeField(object):
     storage = default_storage

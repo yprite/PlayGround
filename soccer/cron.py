@@ -38,17 +38,25 @@ def set_future_match_data():
     logger.info("get_matchs_since_now() size= %d [SUCCESS]", len(ts))
     for t in ts:
 
+        
+        league, league_is_created = models.Leagues.objects.get_or_create(name=t['leagueName'])
+        logger.info("%s [PASS]", league.name)
+
         h_team, h_team_is_craeted = models.Teams.objects.get_or_create(name=t['home_team'])
         if h_team_is_craeted:
-            logger.info("%s get_or_crate [SUCCSS]", h_team.name)
+            h_team.league = league
+            h_team.save()
+            logger.info("%s get_or_create [SUCCSS]", h_team.name)
             
         a_team, a_team_is_created = models.Teams.objects.get_or_create(name=t['away_team'])
         if a_team_is_created:
-            logger.info("%s get_or_crate [SUCCSS]", a_team.name)
+            a_team.league = league
+            a_team.save()
+            logger.info("%s get_or_create [SUCCSS]", a_team.name)
     
         match, match_is_created = models.Matchs.objects.get_or_create(code=t['code'])
         if not match_is_created:
-            logger.info("%s get_or_crate [SUCCSS]", match.code)
+            logger.info("%s get_or_create [SUCCSS]", match.code)
             match.seq = t['seq']
             match.date = t['time']
             match.home = h_team
@@ -58,9 +66,12 @@ def set_future_match_data():
         else:
             logger.info("%s (%s vs %s) [PASS]", match.code, match.home, match.away)
 
+        
+
+
         #match_predict_variable, mpv_is_created = models.MatchPredictVariables.objects.get_or_create(match=match)
         #if mpv_is_created:
-        #    logger.info("%s get_or_crate [SUCCSS]", match_predict_variable.match)
+        #    logger.info("%s get_or_create [SUCCSS]", match_predict_variable.match)
         #    
         #if float(t['odds_home']) + float(t['odds_away']) >= 0:
         #    match_predict_variable.h_x1 = 1 - (float(t['odds_home']) / (float(t['odds_home']) + float(t['odds_away'])))
