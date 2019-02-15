@@ -913,12 +913,14 @@ form.news-letter .btn:hover{
 	.container{
 		width:100%;
 		max-width:830px;
+		min-height:1200px
 	}
 }
 @media (min-width: 992px){
 	.container{
 		width:100%;
 		max-width:830px;
+		min-height:1200px;
 	}
 }
 
@@ -947,8 +949,8 @@ form.news-letter .btn:hover{
 	#contact-form  #email{
 		border-right:1px solid #fff;
 	}
-		#contact-form  .btn{
-	border-left:1px solid #fff;
+	#contact-form  .btn{
+		border-left:1px solid #fff;
 	}
 }
 
@@ -961,6 +963,7 @@ form.news-letter .btn:hover{
 @media (min-width: 1170px){
 	.container{
 		width:830px;
+		min-height:1200px
 	}
 }
 /* 9.3 - media screen and (max-width: 1170px) End
