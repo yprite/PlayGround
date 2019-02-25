@@ -38,6 +38,8 @@ def set_future_match_data():
     logger.info("get_matchs_since_now() size= %d [SUCCESS]", len(ts))
     for t in ts:
 
+        if not t['leagueName'] == 'ENG PR':
+            pass
         
         league, league_is_created = models.Leagues.objects.get_or_create(name=t['leagueName'])
         logger.info("%s [PASS]", league.name)
