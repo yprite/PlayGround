@@ -35,11 +35,13 @@ def set_future_match_data():
     # 17    : away_recent_loss
 
     ts = dev_crawler.get_matchs_since_now()
+    #ts = dev_crawler.set_init_data_2018_2019_EPL()
     logger.info("get_matchs_since_now() size= %d [SUCCESS]", len(ts))
     for t in ts:
-
-        if not t['leagueName'] == 'ENG PR':
-            pass
+        logger.info(t)
+        if t['leagueName'] != 'ENG PR':
+            logger.info('%s -> pass', t['leagueName'])
+            continue
         
         league, league_is_created = models.Leagues.objects.get_or_create(name=t['leagueName'])
         logger.info("%s [PASS]", league.name)
@@ -57,7 +59,7 @@ def set_future_match_data():
             logger.info("%s get_or_create [SUCCSS]", a_team.name)
     
         match, match_is_created = models.Matchs.objects.get_or_create(code=t['code'])
-        if not match_is_created:
+        if match_is_created:
             logger.info("%s get_or_create [SUCCSS]", match.code)
             match.seq = t['seq']
             match.date = t['time']
@@ -71,39 +73,39 @@ def set_future_match_data():
         
 
 
-        #match_predict_variable, mpv_is_created = models.MatchPredictVariables.objects.get_or_create(match=match)
-        #if mpv_is_created:
-        #    logger.info("%s get_or_create [SUCCSS]", match_predict_variable.match)
-        #    
-        #if float(t['odds_home']) + float(t['odds_away']) >= 0:
-        #    match_predict_variable.h_x1 = 1 - (float(t['odds_home']) / (float(t['odds_home']) + float(t['odds_away'])))
-        #    match_predict_variable.a_x1 = 1 - (float(t['odds_away']) / (float(t['odds_home']) + float(t['odds_away'])))
-        #else:
-        #    match_predict_variable.h_x1 = 0
-        #    match_predict_variable.a_x1 = 0
-        #    
-        #if int(t['home_recent_win']) + int(t['home_recent_loss']) != 0:
-        #    match_predict_variable.h_x2 = float(t['home_recent_win']) / (float(t['home_recent_win']) + float(t['home_recent_loss']))
-        #    match_predict_variable.a_x2 = float(t['home_recent_loss']) / (float(t['home_recent_win']) + float(t['home_recent_loss']))
-        #else:
-        #    match_predict_variable.h_x2 =0
-        #    match_predict_variable.a_x2 =0
-        #    
-        #if int(t['history_win']) + int(t['history_loss']) != 0:
-        #    match_predict_variable.h_x3 = float(t['history_win']) / (float(t['history_win']) + float(t['history_loss']))
-        #    match_predict_variable.a_x3 = float(t['history_win']) / (float(t['history_win']) + float(t['history_loss']))
-        #else:
-        #    match_predict_variable.h_x3 = 0
-        #    match_predict_variable.a_x3 = 0
-        #    
-        #if int(t['home_recent_draw']) + int(t['away_recent_draw']) != 0:
-        #    match_predict_variable.h_x4 = float(t['home_recent_draw']) / (float(t['home_recent_draw']) + float(t['away_recent_draw']))
-        #    match_predict_variable.a_x4 = float(t['away_recent_draw']) / (float(t['home_recent_draw']) + float(t['away_recent_draw']))
-        #else:
-        #    match_predict_variable.h_x4 = 0
-        #    match_predict_variable.a_x4 = 0
+        match_predict_variable, mpv_is_created = models.MatchPredictVariables.objects.get_or_create(match=match)
+        if mpv_is_created:
+            logger.info("%s get_or_create [SUCCSS]", match_predict_variable.match)
+            
+        if int(t['odds_home']) + int(t['odds_away']) != 0:
+            match_predict_variable.h_x1 = 1 - (float(t['odds_home']) / (float(t['odds_home']) + float(t['odds_away'])))
+            match_predict_variable.a_x1 = 1 - (float(t['odds_away']) / (float(t['odds_home']) + float(t['odds_away'])))
+        else:
+            match_predict_variable.h_x1 = 0
+            match_predict_variable.a_x1 = 0
+            
+        if int(t['home_recent_win']) + int(t['home_recent_loss']) != 0:
+            match_predict_variable.h_x2 = float(t['home_recent_win']) / (float(t['home_recent_win']) + float(t['home_recent_loss']))
+            match_predict_variable.a_x2 = float(t['home_recent_loss']) / (float(t['home_recent_win']) + float(t['home_recent_loss']))
+        else:
+            match_predict_variable.h_x2 =0
+            match_predict_variable.a_x2 =0
+            
+        if int(t['history_win']) + int(t['history_loss']) != 0:
+            match_predict_variable.h_x3 = float(t['history_win']) / (float(t['history_win']) + float(t['history_loss']))
+            match_predict_variable.a_x3 = float(t['history_win']) / (float(t['history_win']) + float(t['history_loss']))
+        else:
+            match_predict_variable.h_x3 = 0
+            match_predict_variable.a_x3 = 0
+            
+        if int(t['home_recent_draw']) + int(t['away_recent_draw']) != 0:
+            match_predict_variable.h_x4 = float(t['home_recent_draw']) / (float(t['home_recent_draw']) + float(t['away_recent_draw']))
+            match_predict_variable.a_x4 = float(t['away_recent_draw']) / (float(t['home_recent_draw']) + float(t['away_recent_draw']))
+        else:
+            match_predict_variable.h_x4 = 0
+            match_predict_variable.a_x4 = 0
 
-        #match_predict_variable.save()
+        match_predict_variable.save()
    
 
 def func1():
@@ -114,3 +116,8 @@ def func2():
     now_date = now.strftime('%Y-%m-%d')
     next_date = now_date + datetime.timedelta(days=1)
     print (next_date)
+
+def func3():
+    print ('func3')
+    for i in range(100, 0, -1):
+        print(i)
