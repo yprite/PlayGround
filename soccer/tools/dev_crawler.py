@@ -99,6 +99,26 @@ def get_past_record(session, detail_url):
 # home_x1 = 1 - odds_home (odds_home + odds_away)
 # home_x2 = home_recent_win (home_recent_win + away_recent_win)
 # home_x3 = history_win (history_win + history_loss)
+#'leagueName': 'ENG PR', 
+#'time': '23:05', 
+#'Qtime': '', 
+#'away_imageName': '/sports/images/logo/SOCCER///5985.png', 
+#'premium_view': 'Y', 
+#'home_name': '레스터 시티 FC', 
+#'a_s_t': '0', 
+#'code': '11240361', 
+#'news': '', 
+#'away_name': '맨체스터 유나이티드', 
+#'a_rank': '6', 
+#'seq': '8850352', 
+#'h_s_t': '0', 
+#'alarm': False, 
+#'odds': None, 
+#'states': 'PREP', 
+#'type': '22', 
+#'home_imageName': '/sports/images/logo/SOCCER///5770.png', 
+#'statesCode': None, 
+#'h_rank': '11'
 
 MATCHINFO = collections.OrderedDict()
 MATCHINFO['home_team']=''
@@ -107,6 +127,10 @@ MATCHINFO['leagueName']=''
 MATCHINFO['time']=''
 MATCHINFO['code']=''
 MATCHINFO['seq']=''
+MATCHINFO['h_score']=''
+MATCHINFO['a_score']=''
+MATCHINFO['h_rank']=''
+MATCHINFO['a_rank']=''
 MATCHINFO['odds_home']=''
 MATCHINFO['odds_draw']=''
 MATCHINFO['odds_away']=''
@@ -117,9 +141,15 @@ MATCHINFO['history_loss']=''
 MATCHINFO['home_recent_win']=''
 MATCHINFO['home_recent_draw']=''
 MATCHINFO['home_recent_loss']=''
-MATCHINFO['away_recent_win']=''
+MATCHINFO['away_recent_win']='' 
 MATCHINFO['away_recent_draw']=''
 MATCHINFO['away_recent_loss']=''
+
+def is_filter_league(league):
+    ok = ['ENG PR',  'JPN D1', 'ITA D1', 'KOR D1', 'SPA D1', 'GER D1']
+    if league in ok:
+        return True
+    return False
 
 def get_matchs_since_now():
     records = []
@@ -127,7 +157,7 @@ def get_matchs_since_now():
 
     now = datetime.datetime.now()
     now_date = now.strftime('%Y-%m-%d')
-    next = now + datetime.timedelta(days=1)
+    next = now + datetime.timedelta(days=3)
 
     #url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=&reg_id=&data='
     url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=' + next.strftime('%Y-%m-%d') + '&reg_id=&data='
@@ -141,7 +171,7 @@ def get_matchs_since_now():
 
     matchs = json.loads(str(soup))
     for i, item in enumerate(matchs):
-        if item['leagueName'] != 'ENG PR':
+        if is_filter_league(item['leagueName']) == False:
             continue
         home_team = item['home_name']
         away_team = item['away_name']
@@ -251,3 +281,39 @@ def set_init_data_2018_2019_EPL():
             records.append(d)
     session.close()
     return records
+
+def get_match_result():
+    records = []
+    session = requests.Session()
+
+    now = datetime.datetime.now()
+    now_date = now.strftime('%Y-%m-%d')
+    prev = now - datetime.timedelta(days=1)
+
+     url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=' + next.strftime('%Y-%m-%d') + '&reg_id=&data='
+    req = session.get(url)
+
+    logger.info('url : ' + url)
+
+    html = req.text
+
+    soup = BeautifulSoup(html, 'html.parser')
+
+    matchs = json.loads(str(soup))
+    for i, item in enumerate(matchs):
+        if is_filter_league(item['leagueName']) == False:
+            continue
+        d = MATCHINFO.copy()
+        d['home_team'] = str(item['home_name'])
+        d['away_team'] = str(item['away_name'])
+        d['code'] = str(item['code'])
+        d['seq'] = str(item['seq'])
+        d['h_score'] = str(item['h_s_t'])
+        d['a_score'] = str(item['a_s_t'])
+        d['h_rank'] = str(item['h_rank'])
+        d['a_rank'] = str(item['a_rank'])
+        records.append(d)
+    session.close()
+    return records
+
+        

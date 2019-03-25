@@ -1,0 +1,2447 @@
+@media screen and (min-width:1024px) {
+	html, body {
+		position: relative;
+		height: 100%;
+		width: 100%
+	}
+	body {
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		font-family: 'Roboto', sans-serif;
+		top-margin: 0;
+		bottom-margin: 0;
+		left-margin: 0;
+		right-margin: 0;
+		padding: 0;
+		overflow: hidden;
+		overflow-y: scroll
+	}
+	.header {
+		position: relative;
+		width: 100%;
+		height: 86px;
+		background-color: #223349;
+		margin: 0;
+		padding: 0
+	}
+	.logo {
+		position: absolute;
+		margin-left: 30px;
+		width: 84px;
+		height: 22px;
+		top: 32px;
+		background-image:
+			url('../../../static/rodman_static/img/top-swips-logo.png');
+		background-size: cover;
+		cursor: pointer
+	}
+	.header_body {
+		position: absolute;
+		width: 1024px;
+		height: 86px;
+		min-width: 1024px;
+		min-height: 86px;
+		top: 0;
+		left: 50%;
+		margin-left: -512px
+	}
+	.btn_lang_dropdown {
+		position: absolute;
+		width: 70px;
+		height: 35px;
+		right: 15px;
+		top: 25.5px;
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: #2c425f;
+		border-radius: 2.5px 2.5px 2.5px 2.5px;
+		-webkit-border-radius: 2.5px 2.5px 2.5px 2.5px;
+		-moz-border-radius: 2.5px 2.5px 2.5px 2.5px
+	}
+	.lang_flag {
+		position: absolute;
+		left: 10px;
+		width: 15px;
+		height: 15px;
+		top: 10px
+	}
+	.lang_dropdown {
+		position: absolute;
+		width: 70px;
+		right: 15px;
+		top: 70.5px;
+		background-color: #2c425f;
+		border-radius: 2.5px 2.5px 2.5px 2.5px;
+		-webkit-border-radius: 2.5px 2.5px 2.5px 2.5px;
+		-moz-border-radius: 2.5px 2.5px 2.5px 2.5px;
+		z-index: 4;
+		visibility: hidden
+	}
+	.lang_arrow {
+		position: absolute;
+		width: 5px;
+		height: 5px;
+		right: 10px;
+		top: 15px
+	}
+	.btn_get_the_app {
+		position: absolute;
+		width: 125px;
+		height: 35px;
+		border: 0;
+		cursor: pointer;
+		outline: 0;
+		right: 105px;
+		top: 25.5px;
+		background-color: transparent
+	}
+	.get_the_app {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0
+	}
+	.get_the_app_text {
+		position: absolute;
+		text-align: center;
+		width: 125px;
+		height: 35px;
+		top: 0;
+		left: 0;
+		color: #ea5545;
+		overflow: hidden;
+		white-space: nowrap;
+		font-size: 13px
+	}
+	.get_the_app_text_id {
+		position: absolute;
+		text-align: center;
+		width: 125px;
+		height: 35px;
+		top: 0;
+		left: 0;
+		color: #ea5545;
+		overflow: hidden;
+		white-space: nowrap;
+		font-size: 10px
+	}
+	.btn_lang_menu {
+		position: relative;
+		width: 70px;
+		height: 35px;
+		border: 0;
+		cursor: pointer;
+		background-color: transparent;
+		outline: 0
+	}
+	.btn_lang_menu img {
+		position: absolute;
+		left: 10px;
+		width: 15px;
+		height: 15px;
+		top: 10px
+	}
+	.swips_info {
+		position: absolute;
+		right: 245px;
+		height: 100%;
+		color: white;
+		font-size: 18px
+	}
+	.mobile_menu_btn {
+		display: none
+	}
+	.body {
+		width: 100%;
+		height: 1130px;
+		z-index: 1
+	}
+	.center_body {
+		position: absolute;
+		width: 1024px;
+		height: 1105px;
+		right: 50%;
+		margin-right: -512px
+	}
+	.article {
+		position: absolute;
+		height: 1000px;
+		width: 700px;
+		min-width: 700px;
+		right: 0;
+		background-color: white
+	}
+	.aside {
+		position: absolute;
+		top: 25px;
+		min-width: 310px;
+		width: 310px;
+		height: 1080px;
+		border: 1px;
+		border-color: #eee;
+		border-style: solid;
+	}
+	.footer {
+		position: relative;
+		width: 100%;
+		height: 445px;
+		min-width: 1024px
+	}
+	.league_info_header {
+		display: none;
+		position: relative;
+		margin-top: 25px;
+		height: 145px;
+		width: 698px;
+		border: 1px;
+		border-color: #eee;
+		border-style: solid
+	}
+	.league_info_national_img {
+		position: absolute;
+		top: 86px;
+		height: 18px;
+		left: 125px;
+		width: 18px
+	}
+	.league_info_title {
+		position: absolute;
+		top: 30px;
+		height: 45px;
+		left: 125px;
+		width: 100%;
+		font-size: 25px;
+		color: black
+	}
+	.league_info_natinal {
+		position: absolute;
+		top: 75px;
+		height: 40px;
+		left: 153px;
+		width: 100%;
+		font-size: 20px;
+		color: #6e7589
+	}
+	.league_info_img {
+		position: absolute;
+		left: 20px;
+		top: 30px;
+		width: 85px;
+		height: 85px
+	}
+	.article_tab_layout {
+		position: relative;
+		margin-top: 14px;
+		height: 50px;
+		background-color: white;
+		border: 1px;
+		border-color: #eee;
+		border-style: solid
+	}
+	.article_tab {
+		text-align: center
+	}
+	.article_tab a {
+		height: 100%;
+		width: 100%;
+		color: #6e7589;
+		text-align: center;
+		text-decoration: none;
+		transition: .3s;
+		font-size: 13px;
+		z-index: 2
+	}
+	.tab_underbar span {
+		transition: .3s
+	}
+	#tab1 {
+		position: absolute;
+		width: 150px;
+		height: 50px;
+		top: 0
+	}
+	#tab2 {
+		position: absolute;
+		width: 150px;
+		height: 50px;
+		left: 150px;
+		top: 0
+	}
+	#tab3 {
+		position: absolute;
+		width: 150px;
+		height: 50px;
+		left: 300px;
+		top: 0
+	}
+	#tab4 {
+		position: absolute;
+		width: 150px;
+		height: 50px;
+		left: 450px;
+		top: 0
+	}
+	.tablinks1 {
+		background-color: #ea5545;
+		position: absolute;
+		width: 25px;
+		height: 3px;
+		top: 47px;
+		margin-left: 50%;
+		left: -12.5px;
+		z-index: 3;
+		display: none
+	}
+	.tablinks2 {
+		background-color: #ea5545;
+		position: absolute;
+		width: 25px;
+		height: 3px;
+		top: 47px;
+		margin-left: 50%;
+		left: -12.5px;
+		z-index: 3;
+		display: none
+	}
+	.tablinks3 {
+		background-color: #ea5545;
+		position: absolute;
+		width: 25px;
+		height: 3px;
+		top: 47px;
+		margin-left: 50%;
+		left: -12.5px;
+		z-index: 3;
+		display: none
+	}
+	.tablinks4 {
+		background-color: #ea5545;
+		position: absolute;
+		width: 25px;
+		height: 3px;
+		top: 47px;
+		margin-left: 50%;
+		left: -12.5px;
+		z-index: 3;
+		display: none
+	}
+	.article_body {
+		position: relative;
+		margin-top: -1px;
+		height: 762px;
+		width: 698px;
+		background-color: white;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		border: 1px;
+		border-color: #eee;
+		border-style: solid
+	}
+	.scroll_article_body {
+		position: relative;
+		width: 700px;
+		min_height: 101%
+	}
+	.aside_top_title {
+		width: 100%;
+		height: 45px;
+		background-color: #223349;
+		color: white
+	}
+	.top_leagues_title {
+		padding-left: 30px;
+		font-size: 18px
+	}
+	.aside_title_text {
+		padding-left: 30px;
+		font-size: 15px
+	}
+	.aside_title {
+		height: 45px;
+		width: 100%;
+		background-color: white;
+		color: #6e7589
+	}
+	.league_list {
+		position: relative;
+		width: 100%;
+		height: 35px;
+		background-color: white;
+		color: black;
+		font-size: 15px
+	}
+	.league_list a {
+		width: 310px;
+		text-decoration: none;
+		padding-left: 68px;
+		color: black;
+		z-index: 3;
+		margin: 0;
+		box-sizing: border-box
+	}
+	.league_list div {
+		position: absolute;
+		width: 5px;
+		height: 5px;
+		margin-top: 15px;
+		left: 30px;
+		border-radius: 2.5px 2.5px 2.5px 2.5px;
+		-webkit-border-radius: 2.5px 2.5px 2.5px 2.5px;
+		-moz-border-radius: 2.5px 2.5px 2.5px 2.5px;
+		background-color: #6e7589;
+		z-index: 2
+	}
+	.league_list img {
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		left: 40px;
+		margin-top: 8.5px;
+		z-index: 2
+	}
+	.more_leagues {
+		position: relative;
+		width: 100%;
+		height: 400px;
+		margin-top: 35px
+	}
+	.more_leagues_header {
+		position: absolute;
+		height: 35px;
+		left: 0
+	}
+	.more_leagues_text {
+		height: 100%;
+		top: 0;
+		float: left;
+		font-size: 15px;
+		color: black
+	}
+	.more_leagues_text span {
+		padding-left: 30px
+	}
+	.more_leagues_down_img {
+		width: 15px;
+		height: 15px;
+		float: right;
+		margin-right: 5px;
+		margin-top: 10px;
+		background-image:
+			url('../../../static/rodman_static/img/moreleagues_arrow.png');
+		background-size: cover
+	}
+	.more_leagues_img {
+		position: absolute;
+		margin-top: 35px;
+		width: 100%;
+		height: 365px
+	}
+	.more_leagues_bg {
+		position: absolute;
+		top: 0;
+		left: 30px;
+		width: 250px;
+		height: 365px;
+		z-index: 1;
+		background-image: url('../../../static/rodman_static/img/img.png');
+		background-size: cover
+	}
+	.more_leagues_ios {
+		position: absolute;
+		top: 313px;
+		right: 20px;
+		width: 100px;
+		height: 27px;
+		z-index: 2;
+		cursor: pointer;
+	}
+	.more_leagues_google {
+		position: absolute;
+		top: 313px;
+		left: 20px;
+		width: 100px;
+		height: 27px;
+		z-index: 2;
+		cursor: pointer;
+	}
+	.mobile_lang_select {
+		display: none
+	}
+	.mobile_lang_select :hover {
+		display: none
+	}
+	.mobile_lang_select_btn {
+		display: none
+	}
+	.mobile_lang_text_box {
+		display: none
+	}
+	.mobile_lang_flag {
+		display: none
+	}
+	.mobile_lang_arrow {
+		display: none
+	}
+	.mobile_lang_select_dropdown {
+		display: none
+	}
+	.mobile_btn_lang_menu {
+		display: none
+	}
+	.mobile_btn_lang_menu_l {
+		display: none
+	}
+	.mobile_btn_lang_menu_r {
+		display: none
+	}
+	.mobile_btn_lang_menu_l:hover {
+		display: none
+	}
+	.mobile_btn_lang_menu_l:hover {
+		display: none
+	}
+	.mobile_lang_select_dropdown img {
+		display: none
+	}
+	.mobile_lang_text_box {
+		display: none
+	}
+	.more_leagues_info_text {
+		position: absolute;
+		width: 210px;
+		left: 20px;
+		height: 90px;
+		bottom: 60px;
+		text-align: center;
+		color: white;
+		font-size: 15px
+	}
+	.scroll_article_header {
+		position: relative;
+		height: 30px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+		background-color: #eee;
+		cursor: pointer;
+		font-size: 13px;
+		color: black;
+		visibility: hidden
+	}
+	.fixture_time_layout {
+		position: relative;
+		width: 100%;
+		height: 75px
+	}
+	.fixture_time {
+		position: absolute;
+		top: 20px;
+		width: 210px;
+		height: 40px;
+		margin-left: 50%;
+		left: -105px;
+		background-color: #eee;
+		border-radius: 20px 20px 20px 20px;
+		-webkit-border-radius: 20px 20px 20px 20px;
+		-moz-border-radius: 20px 20px 20px 20px;
+		text-align: center;
+		color: #637589;
+		font-size: 18px
+	}
+	.fixtures {
+		position: relative;
+		width: 100%;
+		height: 100px;
+		cursor: pointer;
+		display: block
+	}
+	.fixtures_team1_logo {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		top: 25px;
+		left: 35px
+	}
+	.fixtures_team2_logo {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		top: 25px;
+		right: 35px
+	}
+	.fixtures_team1_name {
+		position: absolute;
+		top: 30px;
+		height: 25px;
+		right: 50%;
+		margin-right: 15px;
+		color: black;
+		font-size: 18px
+	}
+	.fixtures_team2_name {
+		position: absolute;
+		top: 30px;
+		height: 25px;
+		left: 50%;
+		margin-left: 15px;
+		color: black;
+		font-size: 18px
+	}
+	.fixtures_center_devider_left {
+		position: absolute;
+		width: 1px;
+		height: 50px;
+		top: 30px;
+		margin-right: 50%;
+		left: -0.5px;
+		background-color: #f7f7f7
+	}
+	.fixtures_center_devider_right {
+		position: absolute;
+		width: 1px;
+		height: 50px;
+		top: 30px;
+		margin-left: 50%;
+		background-color: #eee
+	}
+	.fixtures_time {
+		position: absolute;
+		width: 100%;
+		height: 22px;
+		top: 8px;
+		text-align: center;
+		text-color: black;
+		font-size: 15px
+	}
+	.fixtures_team1_score {
+		position: absolute;
+		top: 55px;
+		height: 25px;
+		right: 50%;
+		margin-right: 15px;
+		font-size: 20px;
+		text-color: black
+	}
+	.fixtures_team2_score {
+		position: absolute;
+		top: 55px;
+		height: 25px;
+		left: 50%;
+		margin-left: 15px;
+		font-size: 20px;
+		text-color: black
+	}
+	.fixtures_broadcast {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 25px
+	}
+	.fixtures_broadcast_ico {
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		margin-top: 7.5px;
+		left: 15px;
+		background-image: url("../../../static/rodman_static/img/broadcast.png");
+		background-size: cover
+	}
+	.fixtures_broadcast_name {
+		position: absolute;
+		left: 30px;
+		height: 25px;
+		color: #6e7589;
+		overflow: hidden;
+		white-space: nowrap;
+		text-align: center
+	}
+	.fixtures_broadcast_name_text {
+		font-size: 11px
+	}
+	.match_fact {
+		position: relative;
+		width: 100%;
+		height: 814px;
+		margin-top: 14px;
+		border: 1px;
+		border-color: #eee;
+		border-style: solid
+	}
+	.news {
+		position: relative;
+		z-index: 3;
+		width: 100%;
+		height: 980px;
+		margin-top: 0px;
+		border: 0px;
+		border-color: #eee;
+		border-style: solid;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+	.match_fact_header {
+		position: relative;
+		width: 100%;
+		height: 150px
+	}
+	.match_fact_time_img {
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		top: 11px;
+		left: 30px
+	}
+	.match_fact_time_text {
+		position: abolute;
+		height: 40px;
+		top: 0;
+		left: 0;
+		color: #6e7589;
+		font-size: 15px
+	}
+	.match_fact_time_text span {
+		padding-left: 58px
+	}
+	.match_fact_broadcast {
+		position: absolute;
+		height: 40px;
+		top: 0;
+		right: 0
+	}
+	.match_fact_broadcast_img {
+		float: left;
+		margin-top: 11px;
+		margin-right: 10px;
+		width: 18px;
+		height: 18px
+	}
+	.match_fact_broadcast_text {
+		float: right;
+		height: 100%;
+		top: 0;
+		color: #6e7589;
+		font-size: 15px
+	}
+	.match_fact_broadcast_text span {
+		padding-right: 30px
+	}
+	.match_fact_so_score {
+		position: absolute;
+		width: 100%;
+		height: 25px;
+		left: 0;
+		top: 115px;
+		text-align: center;
+		color: black;
+		font-size: 18px
+	}
+	.match_fact_team1_img {
+		position: absolute;
+		width: 60px;
+		height: 60px;
+		left: 30px;
+		top: 55px
+	}
+	.match_fact_team2_img {
+		position: absolute;
+		width: 60px;
+		height: 60px;
+		right: 30px;
+		top: 55px
+	}
+	.match_fact_team1_name {
+		position: absolute;
+		width: 180px;
+		height: 60px;
+		top: 55px;
+		left: 110px;
+		color: black;
+		font-size: 20px
+	}
+	.match_fact_team2_name {
+		position: absolute;
+		max-width: 180px;
+		height: 60px;
+		top: 55px;
+		right: 110px;
+		color: black;
+		font-size: 20px
+	}
+	.match_fact_team1_score {
+		position: absolute;
+		width: 50px;
+		height: 60px;
+		top: 55px;
+		right: 50%;
+		margin-right: 15.5px;
+		text-align: center;
+		color: black;
+		font-size: 35px
+	}
+	.match_fact_elapsed {
+		position: absolute;
+		width: 100%;
+		height: 55px;
+		top: 30px;
+		font-size: 18px;
+		text-align: center
+	}
+	.match_fact_team2_score {
+		position: absolute;
+		width: 50px;
+		height: 60px;
+		top: 55px;
+		left: 50%;
+		margin-left: 15.5px;
+		text-align: center;
+		color: black;
+		font-size: 35px
+	}
+	.match_fact_score_devider {
+		position: absolute;
+		width: 1px;
+		height: 35px;
+		top: 67.5px;
+		left: 50%;
+		margin-left: -0.5px;
+		background-color: #e2e3e7
+	}
+	.match_fact_header_devider {
+		position: relative;
+		width: 100%;
+		height: 1px;
+		background-color: #e2e3e7
+	}
+	.match_fact_body_scroll {
+		position: relative;
+		width: 100%;
+		height: 661px;
+		overflow: scroll;
+		overflow-x: hidden
+	}
+	.match_fact_body {
+		position: relative;
+		width: 100%
+	}
+	.match_fact_game_spot_type_1 {
+		position: relative;
+		width: 100%;
+		height: 85px
+	}
+	.match_fact_game_spot_type_2 {
+		position: relative;
+		width: 100%;
+		height: 75px;
+		text-align: center;
+		font-size: 18px
+	}
+	.match_fact_whistle_div {
+		position: relative;
+		width: 100%;
+		height: 45px
+	}
+	.match_fact_whistle_img {
+		position: absolute;
+		width: 35px;
+		height: 35px;
+		top: 5px;
+		margin-left: 50%;
+		left: -17.5px
+	}
+	.match_fact_game_startend {
+		position: relative;
+		width: 100%;
+		height: 30px;
+		text-align: center;
+		font-size: 18px
+	}
+	.match_fact_team1_goal_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		top: 25px;
+		left: 55px
+	}
+	.match_fact_team2_goal_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		top: 25px;
+		right: 55px
+	}
+	.match_fact_team1_so_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		top: 25px;
+		left: 17.5px
+	}
+	.match_fact_team2_so_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		top: 25px;
+		right: 17.5px
+	}
+	.match_fact_team1_sub_in_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		left: 55px;
+		top: 11px
+	}
+	.match_fact_team1_sub_out_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		left: 55px;
+		top: 38.5px
+	}
+	.match_fact_team2_sub_in_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		right: 55px;
+		top: 11px
+	}
+	.match_fact_team2_sub_out_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		right: 55px;
+		top: 38.5px
+	}
+	.match_fact_team1_text_line1 {
+		position: absolute;
+		height: 27px;
+		top: 10px;
+		left: 90px;
+		font-size: 18px;
+		color: black
+	}
+	.match_fact_team1_text_line2 {
+		position: absolute;
+		height: 28px;
+		top: 37px;
+		left: 90px;
+		font-size: 18px;
+		color: black
+	}
+	.match_fact_team2_text_line1 {
+		position: absolute;
+		height: 27px;
+		top: 10px;
+		right: 90px;
+		font-size: 18px;
+		color: black
+	}
+	.match_fact_team2_text_line2 {
+		position: absolute;
+		height: 28px;
+		top: 37px;
+		right: 90px;
+		font-size: 18px;
+		color: black
+	}
+	.match_fact_team1_text {
+		position: absolute;
+		height: 100%;
+		left: 90px;
+		top: 0;
+		font-size: 18px;
+		color: black
+	}
+	.match_fact_team2_text {
+		position: absolute;
+		height: 100%;
+		right: 90px;
+		top: 0;
+		font-size: 18px;
+		color: black
+	}
+	.match_fact_team1_text_so {
+		position: absolute;
+		height: 100%;
+		left: 60px;
+		top: 0;
+		font-size: 18px
+	}
+	.match_fact_team2_text_so {
+		position: absolute;
+		height: 100%;
+		right: 60px;
+		top: 0;
+		font-size: 18px
+	}
+	.match_fact_team1_flag {
+		position: absolute;
+		width: 5px;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: #54d59d
+	}
+	.match_fact_team2_flag {
+		position: absolute;
+		width: 5px;
+		height: 100%;
+		right: 0;
+		top: 0;
+		background-color: #6ba4f1
+	}
+	.match_fact_team1_elapsed_time {
+		position: absolute;
+		width: 50px;
+		height: 100%;
+		top: 0;
+		left: 5px;
+		text-align: center;
+		font-size: 18px;
+		color: black
+	}
+	.match_fact_team2_elapsed_time {
+		position: absolute;
+		width: 50px;
+		height: 100%;
+		top: 0;
+		right: 5px;
+		text-align: center;
+		font-size: 18px;
+		color: black
+	}
+	.match_fact_not_started {
+		position: relative;
+		width: 100%;
+		height: 30px;
+		text-align: center;
+		margin-top: 95px;
+		font-size: 18px
+	}
+	.btn_type_select {
+		position: absolute;
+		width: 100%;
+		top: 20px;
+		height: 40px;
+		left: 15px
+	}
+	.league_leaders_list {
+		position: absolute;
+		top: 80px;
+		width: 100%
+	}
+	.league_leader {
+		position: relative;
+		width: 100%;
+		height: 70px
+	}
+	.league_leader_img {
+		position: absolute;
+		top: 10px;
+		left: 35px;
+		width: 50px;
+		height: 50px;
+		border-radius: 25px 25px 25px 25px;
+		-webkit-border-radius: 25px 25px 25px 25px;
+		-moz-border-radius: 25px 25px 25px 25px
+	}
+	.league_leader_rank {
+		position: absolute;
+		text-align: center;
+		width: 35px;
+		left: 0;
+		top: 0;
+		height: 100%;
+		font-size: 15px
+	}
+	.league_leader_name {
+		position: absolute;
+		height: 25px;
+		top: 10px;
+		margin-left: 95px;
+		font-size: 18px
+	}
+	.league_leader_info {
+		position: absolute;
+		height: 25px;
+		bottom: 10px;
+		margin-left: 95px;
+		font-size: 15px;
+		color: #6e7589
+	}
+	.league_leader_result {
+		position: absolute;
+		margin-right: 35px;
+		right: 0;
+		height: 100%;
+		font-size: 18px;
+		color: #000
+	}
+	.footer_app_info {
+		position: relative;
+		width: 100%;
+		height: 380px;
+		background-color: #202734
+	}
+	.footer_app_bg {
+		z-index: 2;
+		width: 1024px;
+		height: 380px;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -512px;
+		background-image:
+			url("../../../static/rodman_static/img/footer_background.png")
+	}
+	.footer_app_info_text {
+		position: absolute;
+		width: 100%;
+		height: 95px;
+		z-index: 3;
+		text-align: center;
+		color: white;
+		top: 60px
+	}
+	.footer_ios {
+		position: absolute;
+		left: 50%;
+		margin-left: 10px;
+		top: 155px;
+		width: 120px;
+		height: 32px;
+		z-index: 3;
+		cursor: pointer
+	}
+	.footer_google {
+		position: absolute;
+		right: 50%;
+		margin-right: 10px;
+		top: 155px;
+		width: 120px;
+		height: 32px;
+		z-index: 3;
+		cursor: pointer
+	}
+	.footer_bg {
+		position: absolute;
+		width: 316px;
+		height: 193px;
+		z-index: 3;
+		left: 50%;
+		margin-left: -158px;
+		top: 187px
+	}
+	.frifee_info {
+		position: relative;
+		width: 100%;
+		height: 65px;
+		background-color: #141821
+	}
+	.footer_swips_logo {
+		position: absolute;
+		width: 57px;
+		height: 15px;
+		top: 25px;
+		right: 50%;
+		margin-right: 425px
+	}
+	.footer_swips_facebook {
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		top: 23.5px;
+		left: 50%;
+		margin-left: 406px;
+		cursor: pointer;
+		z-index: 2;
+		background-image: url("../../../static/rodman_static/img/facebook.png");
+		background-size: cover
+	}
+	.footer_swips_insta {
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		top: 23.5px;
+		left: 50%;
+		margin-left: 459px;
+		cursor: pointer;
+		z-index: 2;
+		background-image: url("../../../static/rodman_static/img/insta.png");
+		background-size: cover
+	}
+	.footer_swips_info_text {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		text-align: center;
+		color: white
+	}
+	.mobile {
+		display: none
+	}
+	.football_league_label {
+		position: relative;
+		width: 100%;
+		height: 40px;
+		font-size: 15px;
+		color: #637589
+	}
+	.football_league_label_team {
+		position: absolute;
+		width: 355px;
+		height: 100%;
+		top: 0;
+		left: 0
+	}
+	.football_league_label_team span {
+		padding-left: 20px
+	}
+	.football_league_label_gp {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 355px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_label_w {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 400px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_label_d {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 445px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_label_l {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 490px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_label_gf {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 535px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_label_ga {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 580px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_label_p {
+		position: absolute;
+		width: 75px;
+		height: 100%;
+		left: 625px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_rank {
+		position: relative;
+		width: 100%;
+		height: 60px;
+		color: black;
+		font-size: 18px
+	}
+	.football_league_rank_num {
+		position: absolute;
+		width: 35px;
+		height: 100%;
+		left: 5px;
+		top: 0;
+		text-align: center;
+		font-size: 15px
+	}
+	.football_league_rank_team {
+		position: absolute;
+		width: 260px;
+		height: 100%;
+		left: 85px;
+		top: 0
+	}
+	.football_league_rank_gp {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 355px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_rank_w {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 400px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_rank_d {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 445px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_rank_l {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 490px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_rank_gf {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 535px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_rank_ga {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		left: 580px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_rank_p {
+		position: absolute;
+		width: 75px;
+		height: 100%;
+		left: 625px;
+		top: 0;
+		text-align: center
+	}
+	.football_league_rank_flag {
+		position: absolute;
+		width: 5px;
+		height: 100%;
+		top: 0;
+		left: 0
+	}
+	.football_league_rank_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		top: 17.5px;
+		left: 45px
+	}
+	.uefa_round_16_8 {
+		position: relative;
+		width: 100%;
+		height: 908px
+	}
+	.uefa_round_4_2 {
+		position: relative;
+		width: 100%;
+		height: 232px
+	}
+	#uefa_round_16 {
+		position: absolute;
+		width: 320px;
+		margin-left: 20px;
+		top: 0;
+		height: 100%
+	}
+	#uefa_round_8 {
+		position: absolute;
+		width: 290px;
+		left: 340px;
+		top: 0;
+		height: 100%
+	}
+	#uefa_round_4 {
+		position: absolute;
+		height: 100%;
+		width: 320px;
+		margin-left: 20px;
+		top: 0;
+		height: 100%
+	}
+	#uefa_round_2 {
+		position: absolute;
+		width: 290px;
+		left: 340px;
+		top: 0;
+		height: 100%
+	}
+	.tournament_sub_title {
+		position: relative;
+		width: 100%;
+		height: 25px;
+		color: #ea5545;
+		font-size: 15px
+	}
+	.tournament_sub_title_left {
+		position: absolute;
+		width: 340px;
+		height: 25px;
+		top: 0;
+		left: 0
+	}
+	.tournament_sub_title_left span {
+		padding-left: 20px
+	}
+	.tournament_sub_title_right {
+		position: absolute;
+		height: 25px;
+		top: 0;
+		left: 340px
+	}
+	.tournament_match_table {
+		position: relative;
+		width: 290px;
+		height: 61px;
+		border-radius: 5px 5px 5px 5px;
+		-webkit-border-radius: 5px 5px 5px 5px;
+		-moz-border-radius: 5px 5px 5px 5px;
+		background-color: #e2e3e7
+	}
+	.tournament_match_team {
+		position: relative;
+		width: 290px;
+		height: 30px;
+		font-size: 13px
+	}
+	.tournament_match_team_img {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		left: 10px;
+		top: 5px
+	}
+	.tournament_match_team_name {
+		position: absolute;
+		width: 127px;
+		height: 100%;
+		left: 35px;
+		top: 0;
+		overflow: hidden;
+		white-space: nowrap
+	}
+	.tournament_match_team_tag {
+		position: absolute;
+		width: 20px;
+		height: 100%;
+		text-align: center;
+		left: 162px;
+		top: 0;
+		color: #ea5545
+	}
+	.tournament_match_team_1st_round {
+		position: absolute;
+		width: 30px;
+		text-align: center;
+		right: 77px;
+		height: 100%;
+		top: 0;
+		color: black
+	}
+	.tournament_match_team_2nd_round {
+		position: absolute;
+		width: 30px;
+		text-align: center;
+		right: 46px;
+		height: 100%;
+		top: 0;
+		color: black
+	}
+	.tournament_match_team_total {
+		position: absolute;
+		width: 45px;
+		text-align: center;
+		right: 0;
+		height: 100%;
+		top: 0
+	}
+	.tournament_match_team_total2 {
+		position: absolute;
+		width: 45px;
+		text-align: center;
+		right: 0;
+		height: 100%;
+		top: 0
+	}
+	.tournament_devider {
+		position: relative;
+		background-color: #e2e3e7;
+		width: 610px;
+		height: 1px;
+		margin-left: 20px
+	}
+	.tournement_match_devider_vertical_1 {
+		position: absolute;
+		background-color: white;
+		width: 1px;
+		height: 100%;
+		top: 0;
+		right: 107px
+	}
+	.tournement_match_devider_vertical_2 {
+		position: absolute;
+		background-color: white;
+		width: 1px;
+		height: 100%;
+		top: 0;
+		right: 76px
+	}
+	.tournement_match_devider_vertical_3 {
+		position: absolute;
+		background-color: white;
+		width: 1px;
+		height: 100%;
+		top: 0;
+		right: 45px
+	}
+	.tournament_match_devider_horizontal {
+		position: relative;
+		background-color: white;
+		width: 100%;
+		height: 1px
+	}
+	#europa_round_2 {
+		position: relative;
+		width: 100%;
+		height: 121px;
+		margin-left: 20px
+	}
+	.europa_round_8_4 {
+		position: relative;
+		width: 100%;
+		height: 454px
+	}
+	#europa_round_8 {
+		position: absolute;
+		width: 320px;
+		height: 100%;
+		margin-left: 20px;
+		top: 0
+	}
+	#europa_round_4 {
+		position: absolute;
+		width: 320px;
+		height: 100%;
+		margin-left: 340px;
+		top: 0
+	}
+	.europa_round_32_16 {
+		position: relative;
+		width: 100%;
+		height: 1796px
+	}
+	#europa_round_32 {
+		position: absolute;
+		width: 320px;
+		height: 100%;
+		margin-left: 20px;
+		top: 0
+	}
+	#europa_round_16 {
+		position: absolute;
+		width: 320px;
+		height: 100%;
+		margin-left: 340px;
+		top: 0
+	}
+	.tournament_title {
+		position: relative;
+		height: 30px;
+		font-size: 15px;
+		color: black
+	}
+	.tournament_title span {
+		padding-left: 20px
+	}
+	.league_label {
+		position: relative;
+		width: 100%;
+		height: 40px;
+		font-size: 15px;
+		color: #6e7589
+	}
+	.league_label_team {
+		position: absolute;
+		width: 355px;
+		height: 100%;
+		top: 0;
+		left: 0
+	}
+	.league_label_team span {
+		padding-left: 20px
+	}
+	.league_label_gp {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		right: 240px;
+		top: 0;
+		text-align: center
+	}
+	.league_label_w {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		right: 195px;
+		top: 0;
+		text-align: center
+	}
+	.league_label_l {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		right: 150px;
+		top: 0;
+		text-align: center
+	}
+	.league_label_pct {
+		position: absolute;
+		width: 75px;
+		height: 100%;
+		right: 75px;
+		top: 0;
+		text-align: center
+	}
+	.league_label_gb {
+		position: absolute;
+		width: 75px;
+		height: 100%;
+		right: 0;
+		top: 0;
+		text-align: center
+	}
+	.league_rank {
+		position: relative;
+		width: 100%;
+		height: 60px;
+		font-size: 15px;
+		color: black
+	}
+	.league_rank_num {
+		position: absolute;
+		width: 35px;
+		height: 100%;
+		left: 5px;
+		top: 0;
+		text-align: center
+	}
+	.league_rank_team {
+		position: absolute;
+		width: 260px;
+		height: 100%;
+		left: 85px;
+		top: 0
+	}
+	.league_rank_gp {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		right: 240px;
+		top: 0;
+		text-align: center
+	}
+	.league_rank_w {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		right: 195px;
+		top: 0;
+		text-align: center
+	}
+	.league_rank_l {
+		position: absolute;
+		width: 45px;
+		height: 100%;
+		right: 150px;
+		top: 0;
+		text-align: center
+	}
+	.league_rank_pts {
+		position: absolute;
+		width: 75px;
+		height: 100%;
+		right: 75px;
+		top: 0;
+		text-align: center
+	}
+	.league_rank_gb {
+		position: absolute;
+		width: 75px;
+		height: 100%;
+		right: 0;
+		top: 0;
+		text-align: center
+	}
+	.league_rank_flag {
+		position: absolute;
+		width: 5px;
+		height: 100%;
+		top: 0;
+		left: 0
+	}
+	.league_rank_img {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		top: 17.5px;
+		left: 45px
+	}
+	.league_color_list {
+		position: relative;
+		width: 100%;
+		height: 50px;
+		font-size: 15px
+	}
+	.league_color {
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		border-radius: 5px 5px 5px 5px;
+		-webkit-border-radius: 5px 5px 5px 5px;
+		-moz-border-radius: 5px 5px 5px 5px;
+		left: 17.5px;
+		top: 20px
+	}
+	.league_color_text {
+		position: absolute;
+		height: 100%
+	}
+	.league_color_text span {
+		padding-left: 45px
+	}
+	.swips_info_scroll_bottom_divider {
+		position: relative;
+		margin-top: 70px;
+		width: 625px;
+		height: 1px;
+		margin-left: 37.5px;
+		background-color: #e2e3e7
+	}
+	.swips_info_scroll_bottom {
+		position: relative;
+		width: 100%;
+		height: 160px
+	}
+	.swips_info_scroll_bottom_img {
+		position: absolute;
+		width: 80px;
+		height: 80px;
+		left: 40px;
+		top: 25px;
+		background-image:
+			url("../../../static/rodman_static/img/swips_info_phone.png");
+		background-size: cover
+	}
+	.swips_info_scroll_bottom_text {
+		position: absolute;
+		width: 450px;
+		height: 70px;
+		left: 145px;
+		top: 10px;
+		font-size: 15px;
+		color: #000
+	}
+	.swips_info_goto {
+		position: absolute;
+		width: 200px;
+		height: 40px;
+		border: 2px;
+		border-color: #ea5545;
+		border-style: solid;
+		border-radius: 20px 20px 20px 20px;
+		-webkit-border-radius: 20px 20px 20px 20px;
+		-moz-border-radius: 20px 20px 20px 20px;
+		left: 145px;
+		top: 80px;
+		cursor: pointer
+	}
+	.swips_info_goto_div {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		-webkit-justify-content: center
+	}
+	.swips_info_goto_img {
+		float: left;
+		width: 6px;
+		height: 6px;
+		margin-right: 7px;
+		margin-top: 17px;
+		background-image:
+			url("../../../static/rodman_static/img/swips_info_plus.png");
+		background-size: cover
+	}
+	.swips_info_goto_text {
+		float: right;
+		height: 40px;
+		color: #ea5545;
+		font-size: 15px;
+		float: right;
+		overflow: hidden;
+		white-space: nowrap
+	}
+	.dialog_button {
+		position: absolute;
+		width: 200px;
+		height: 50px;
+		bottom: 65px;
+		left: 50%;
+		margin-left: -100px;
+		z-index: 13;
+		cursor: pointer;
+		background-image:
+			url("../../../static/rodman_static/img/fixtures_popup_bt.png");
+		background-size: cover
+	}
+	.dialog_x_button {
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		right: 53px;
+		top: 75px;
+		cursor: pointer;
+		z-index: 13;
+		background-image:
+			url("../../../static/rodman_static/img/fixtures_popup_close.png");
+		background-size: cover
+	}
+	.dialog_button_text {
+		position: absolute;
+		width: 200px;
+		height: 50px;
+		bottom: 65px;
+		left: 50%;
+		margin-left: -100px;
+		z-index: 14;
+		cursor: pointer;
+		color: white;
+		text-align: center;
+		text-decoration: none
+	}
+	.dialog_text {
+		position: absolute;
+		width: 230px;
+		height: 120px;
+		text-align: center;
+		font-size: 13px;
+		color: #6e7589;
+		top: 90px;
+		left: 70px;
+		z-index: 12;
+		word-break: keep-all
+	}
+	.dialog_bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 370px;
+		height: 325px;
+		z-index: 11;
+		background-image:
+			url("../../../static/rodman_static/img/fixtures_popup_box.png");
+		background-size: cover
+	}
+	.dialog_body {
+		position: absolute;
+		width: 370px;
+		height: 325px;
+		z-index: 10;
+		top: 402.5px;
+		left: 50%;
+		margin-left: -185px;
+		visibility: hidden
+	}
+	.nba_round_16_to_8 {
+		position: relative;
+		width: 100%;
+		height: 923px
+	}
+	.nba_round_4_to_2 {
+		position: relative;
+		width: 100%;
+		height: 257px
+	}
+	.nba_first_round {
+		position: absolute;
+		width: 340px;
+		top: 0;
+		left: 20px
+	}
+	.nba_conf_semi_final {
+		position: absolute;
+		width: 340px;
+		top: 0;
+		left: 340px
+	}
+	.nba_conf_final {
+		position: absolute;
+		width: 340px;
+		top: 0;
+		left: 20px
+	}
+	.nba_final {
+		position: absolute;
+		width: 340px;
+		top: 0;
+		left: 340px
+	}
+}
+
+.lang_text_box span:hover {
+	color: #ea5545
+}
+
+.lang_text {
+	color: white;
+	padding-left: 25px;
+	text-transform: uppercase;
+	font-size: 13px
+}
+
+.center_vt_div {
+	border: 0;
+	display: table
+}
+
+.center_vt_span {
+	display: table-cell;
+	vertical-align: middle
+}
+
+.fixtures_devider {
+	position: relative;
+	width: 100%;
+	height: 1px;
+	background-color: #eee
+}
+
+div.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1
+}
+
+div.tab a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	transition: .3s;
+	font-size: 17px
+}
+
+.league_list a:hover {
+	background-color: #eee;
+	color: #637589
+}
+
+.league_list a:focus, .active {
+	background-color: #eee;
+	color: #ea5545
+}
+
+.tab_underbar {
+	font-size: 13px;
+	color: black;
+	z-index: 2
+}
+
+.scroll_article_arrow {
+	float: left;
+	width: 10px;
+	height: 10px;
+	margin-top: 10px
+}
+
+.scroll_article_header_info {
+	height: 30px
+}
+
+.scroll_article_header_info_text {
+	padding-left: 5px
+}
+
+.div_10px {
+	position: relative;
+	height: 10px
+}
+
+.div_20px {
+	position: relative;
+	height: 20px
+}
+
+.div_25px {
+	position: relative;
+	height: 25px
+}
+
+.div_30px {
+	position: relative;
+	height: 20px
+}
+
+.div_40px {
+	position: relative;
+	height: 40px
+}
+
+.div_50px {
+	position: relative;
+	height: 50px
+}
+
+.div_70px {
+	position: relative;
+	height: 75px
+}
+
+.div_75px {
+	position: relative;
+	height: 75px
+}
+
+.div_90px {
+	position: relative;
+	height: 90px
+}
+
+.div_15px {
+	position: relative;
+	height: 15px
+}
+
+.div_167px {
+	position: relative;
+	height: 167px
+}
+
+.div_155px {
+	position: relative;
+	height: 160px
+}
+
+.mlb_world_series {
+	position: relative;
+	width: 100%;
+	padding-left: 20px;
+	height: 101px
+}
+
+.mlb_division_championship {
+	position: relative;
+	width: 100%;
+	height: 484px
+}
+
+.mlb_division_series {
+	position: absolute;
+	width: 340px;
+	height: 100%;
+	left: 20px;
+	top: 0
+}
+
+.mlb_championship {
+	position: absolute;
+	width: 340px;
+	height: 100%;
+	left: 340px;
+	top: 0
+}
+
+.playoff_title {
+	position: relative;
+	width: 100%;
+	height: 25px
+}
+
+.playoff_match {
+	position: relative;
+	width: 290px;
+	height: 61px;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	background-color: #e2e3e7;
+	font-size: 13px;
+	color: black
+}
+
+.playoff_team1 {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	left: 0;
+	top: 0
+}
+
+.playoff_team2 {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	left: 0;
+	top: 31px
+}
+
+.playoff_team_img {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 10px;
+	top: 5px
+}
+
+.playoff_team_name {
+	position: absolute;
+	width: 209px;
+	height: 100%;
+	top: 0;
+	left: 35px
+}
+
+.playoff_team_score {
+	position: absolute;
+	width: 45px;
+	height: 100%;
+	top: 0;
+	right: 0;
+	text-align: center
+}
+
+.playoff_center_div {
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	left: 0;
+	top: 30px;
+	background-color: white
+}
+
+.playoff_vertical_div {
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	right: 45px;
+	top: 0;
+	background-color: white
+}
+
+.article_body::-webkit-scrollbar-track-piece:start {
+	background-color: transparent
+}
+
+.article_body::-webkit-scrollbar-track-piece:end {
+	background-color: transparent
+}
+
+.article_body::-webkit-scrollbar-track {
+	width: 0;
+	background: url("../../../static/rodman_static/img/transparent.png")
+		repeat !important;
+	box-shadow: inset 1px 0 5px -2px rgba(0, 0, 0, 0)
+}
+
+.article_body::-webkit-scrollbar-track-piece {
+	width: 0;
+	padding-left: 100px;
+	background-color: transparent;
+	opacity: .3
+}
+
+.article_body::-webkit-scrollbar {
+	width: 6px;
+	background-color: rgba(0, 0, 0, 0)
+}
+
+.article_body::-webkit-scrollbar-thumb {
+	border-radius: 6px;
+	background-color: #acacac
+}
+
+.match_fact_body_scroll::-webkit-scrollbar-track {
+	border-radius: 10px
+}
+
+.match_fact_body_scroll::-webkit-scrollbar {
+	width: 6px;
+	background: transparent
+}
+
+.match_fact_body_scroll::-webkit-scrollbar-thumb {
+	border-radius: 6px;
+	background-color: #acacac
+}
+
+.fixtures:hover {
+	background-color: #eee
+}
+
+.find_swips_on {
+	position: absolute;
+	width: 460px;
+	height: 95px;
+	background-color: #2c425f;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	visibility: hidden;
+	text-align: center;
+	top: 70.5px;
+	right: 105px;
+	z-index: 4
+}
+
+.find_swips_on_text {
+	position: absolute;
+	width: 190px;
+	height: 75px;
+	top: 10px;
+	left: 10px;
+	color: white;
+	font-size: 15px
+}
+
+.find_swips_on_google {
+	position: absolute;
+	width: 100px;
+	height: 27px;
+	right: 128px;
+	top: 34px;
+	background-image:
+		url("../../../static/rodman_static/img/menu_googleplay.png");
+	background-size: cover;
+	z-index: 3;
+	cursor: pointer
+}
+
+.find_swips_on_ios {
+	position: absolute;
+	width: 100px;
+	height: 27px;
+	right: 20px;
+	top: 34px;
+	background-image:
+		url("../../../static/rodman_static/img/menu_appstore.png");
+	background-size: cover;
+	z-index: 3;
+	cursor: pointer
+}
+
+.find_swips_on_devider_1 {
+	position: absolute;
+	left: 210px;
+	top: 20px;
+	width: 1px;
+	height: 55px;
+	background-color: #283040
+}
+
+.find_swips_on_devider_2 {
+	position: absolute;
+	left: 211px;
+	top: 20px;
+	width: 1px;
+	height: 55px;
+	background-color: #385276
+}
+
+.fixtures_loading_div {
+	position: relative;
+	width: 100%;
+	height: 80px;
+	display: none
+}
+
+.fixtures_loading {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	top: 22.5px;
+	margin-left: 50%;
+	left: -17.5px;
+	background-image:
+		url("../../../static/rodman_static/img/fixtures_loading.png");
+	background-size: cover;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite
+}
+
+@
+-webkit-keyframes spin { 0% {
+	-webkit-transform: rotate(0deg)
+}
+
+100%
+{
+-webkit-transform
+:rotate(360deg)
+
+
+}
+}
+@
+keyframes spin { 0% {
+	transform: rotate(0deg)
+}
+
+100%
+{
+transform
+:rotate(360deg)
+
+
+}
+}
+.btn_football_goal_leaders {
+	position: absolute;
+	width: 105px;
+	height: 30px;
+	top: 5px;
+	left: 0;
+	border: 2px;
+	border-color: #eee;
+	border-style: solid;
+	border-radius: 15px 15px 15px 15px;
+	-webkit-border-radius: 15px 15px 15px 15px;
+	-moz-border-radius: 15px 15px 15px 15px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 13px
+}
+
+.btn_football_assist_leaders {
+	position: absolute;
+	width: 105px;
+	height: 30px;
+	top: 5px;
+	left: 115px;
+	border: 2px;
+	border-color: #eee;
+	border-style: solid;
+	border-radius: 15px 15px 15px 15px;
+	-webkit-border-radius: 15px 15px 15px 15px;
+	-moz-border-radius: 15px 15px 15px 15px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 13px
+}
+
+.section_news {
+	width: 270px;
+	height: 215px;
+	break-inside: avoid;
+}
+
+.img_news {
+	width: 270px;
+	height: 140px;
+	object-fit: cover;
+}
+
+#news_list {
+	width: 640px;
+	padding-left: 60px;
+	padding-top: 40px;
+	grid-template-columns: 310px 270px;
+	grid-row-gap: 40px;
+}
+
+.link_news {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	text-decoration: none !important;
+}
+
+.link_news .title_news:hover {
+	color: #ea5545;
+}
+
+#section_ {
+	display: none;
+}
+
+.title_news {
+	width: 270px;
+	height: 65px;
+	font-size: 15px;
+	color: black;
+	font-weight: bold;
+	padding: 0 !important;
+	margin: 0 !important;
+	padding-top: 10px;
+	vertical-align: middle;
+	word-break: break-word;
+}
+
+.time_news {
+	width: 270px;
+	height: 25px;
+	font-size: 11px;
+	color: #6e7589;
+}
+
+.news_line {
+	width: 270px;
+	height: 1px;
+	background-color: black;
+}
+
+.article_title_news {
+	width: 270px;
+	height: 40px;
+	display: flex;
+	margin-top: 25px;
+	margin-left: 60px;
+}
+
+.separator {
+	margin-top: 10px;
+	width: 5px;
+	height: 20px;
+	background-color: #ff6a5a;
+}
+
+.article_title_news_text {
+	height: 40px;
+	padding-left: 8px;
+	color: black;
+	font-size: 22px;
+}
+
+#aside_swips_news {
+	padding-left: 50px !important;
+}

@@ -118,6 +118,4 @@ def func2():
     print (next_date)
 
 def func3():
-    print ('func3')
-    for i in range(100, 0, -1):
-        print(i)
+

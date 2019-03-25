@@ -74,12 +74,14 @@ body {
 	[role="main"] {
 		padding-top: 48px; /* Space for fixed navbar */
 	}
+	/*
 	.sidebar {
 		max-width:150px;
 	}
 	.navbar-brand {
 		max-width:150px;
 	}
+	*/
 }
 
 /*
@@ -110,5 +112,8 @@ body {
 	border-color: transparent;
 	box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
-
+.nav-link {
+	font-size: .8rem;
+	padding-bottom: 0px;
+}
 
