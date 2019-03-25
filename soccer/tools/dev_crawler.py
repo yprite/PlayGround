@@ -157,7 +157,7 @@ def get_matchs_since_now():
 
     now = datetime.datetime.now()
     now_date = now.strftime('%Y-%m-%d')
-    next = now + datetime.timedelta(days=3)
+    next = now + datetime.timedelta(days=1)
 
     #url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=&reg_id=&data='
     url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=' + next.strftime('%Y-%m-%d') + '&reg_id=&data='
