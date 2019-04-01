@@ -29,6 +29,8 @@ class IndexPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexPageView, self).get_context_data(**kwargs)
+        context['leagues'] = models.Leagues.objects.all()
+        context['teams'] = models.Teams.objects.all()
         return context
 
 class TimeLinePageView(TemplateView):

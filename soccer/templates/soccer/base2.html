@@ -18,114 +18,81 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Playfun</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-        </ul>
-    </div>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Playfun</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      {% for league in leagues %}
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{ league }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </nav>
 <div class="container-fluid">
-    <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span class="category">Today Match</span>
-                    <a class="d-flex align-items-center text-muted" href="#">
-                        <span lass="refresh-button" data-feather="refresh-cw"></span>
-                    </a>
-                </h6>
-                <span style="color:white;margin-left:20px;"> October 26th</span>
-                <ul class="nav flex-column mb-2">
-                    <a href="#" class="list-group-item list-group-item-action bg-light">
-                        <span>1-2</span>
-                        <span data-feather="circle"></span>
-                        <span>Real madrid - F.C. Barcelona </span>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-gray">
-                        <span>0-5</span><span data-feather="circle"></span>
-                        <span> Sevilla - Villareal </span>
-                    </a>
-                    <a href="#"
-                        class="list-group-item
-                        list-group-item-action
-                        bg-gray">
-                        <span>
-                            0-5</span>
-                        <span
-                            data-feather="circle"></span>
-                        <span>
-                            Sevilla
-                            -
-                            Villareal
-                        </span>
-                    </a>
-
-                </ul>
-                <h6
-                    class="sidebar-heading
-                    d-flex
-                    justify-content-between
-                    align-items-center
-                    px-3
-                    mt-4
-                    mb-1
-                    text-muted">
-                    <span
-                        class="category">Ranking</span>
-                    <a
-                        class="d-flex
-                        align-items-center
-                        text-muted"
-                        href="#">
-                        <span
-                            data-feather="plus-circle"></span>
-                    </a>
-                </h6>
-                <ul class="nav flex-column mb-2">
-									<li class="nav-item">
-										<a class="nav-link" href="#">1 리버풀 FC</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">2 맨체스터 시티  FC</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">3 토트넘 핫스퍼 FC</a>
-									</li>
-								</ul>
-            </div>
-        </nav>
-        <!-- Content -->
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="row">
-            <div class="col-lg-4 container">
-                {% block main_left_content %} {% endblock %}
-            </div><!-- /.col-lg-4 -->
-
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-        </main>
-    </div>
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span class="category">Today Match</span>
+            <a class="d-flex align-items-center text-muted" href="#">
+                <span lass="refresh-button" data-feather="refresh-cw"></span>
+            </a>
+        </h6>
+        <span style="color:white;margin-left:20px;"> October 26th</span>
+        <ul class="nav flex-column mb-2">
+          <a href="#" class="list-group-item list-group-item-action bg-light">
+            <span>1-2</span>
+            <span data-feather="circle"></span>
+            <span>Real madrid - F.C. Barcelona </span>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action bg-gray">
+            <span>0-5</span><span data-feather="circle"></span>
+            <span> Sevilla - Villareal </span>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action bg-gray">
+            <span>0-5</span>
+            <span data-feather="circle"></span>
+            <span> Sevilla - Villareal</span>
+          </a>
+        </ul>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span class="category">Ranking</span>
+          <a class="d-flex align-items-center text-muted" href="#">
+              <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          {% for team in teams %}
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{ forloop.counter }} {{team }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+    <!-- Content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="row">
+        <div class="col-lg-4 container">
+          {% block main_left_content %} {% endblock %}
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <h2>Heading</h2>
+          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+    </main>
+  </div>
 </div>
 
 <!-- Optional JavaScript -->
@@ -133,12 +100,12 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 <script type="text/javascript" src="{% static "test/test.js" %}"></script>
 <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
 <script type="text/javascript">
-feather.replace()
+  feather.replace()
 </script>
 </body>
 </html>

@@ -77,7 +77,7 @@ class Leagues(models.Model):
     name = models.CharField(max_length=200)
     nation = models.ForeignKey(Nations, on_delete=None, null=True, blank=True)
     description = models.CharField(max_length=200, null=True, blank=True)
-    level = models.ForeignKey(Levels, on_delete=None, null=True, blank=True)    
+    level = models.ForeignKey(Levels, on_delete=None, null=True, blank=True)
     def __str__(self):
         return self.name
 
@@ -89,6 +89,7 @@ class Teams(models.Model):
     stadium = models.ForeignKey(Stadiums, on_delete=None, null=True, blank=True)
     ranking = models.IntegerField(null=True)
     mmr = models.IntegerField(null=True, blank=True) #match making rating
+    fifaid = models.IntegerField(null=True, blank=True)
     def __str__(self):
         return self.name
 

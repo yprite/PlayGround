@@ -107,6 +107,16 @@ def set_future_match_data():
 
         match_predict_variable.save()
    
+def set_result_match_data():
+    ts = dev_crawler.get_match_result():
+    logger.info("get_match_result() Done")
+
+    for t in ts:
+        #Three conditions should check null.
+        seq = ''
+        code = ''
+        h_team = ''
+        a_team = ''
 
 def func1():
     set_future_match_data()
