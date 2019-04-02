@@ -128,5 +128,3 @@ def func2():
     next_date = now_date + datetime.timedelta(days=1)
     print (next_date)
 
-def func3():
-
