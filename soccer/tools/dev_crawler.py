@@ -290,7 +290,7 @@ def get_match_result():
     now_date = now.strftime('%Y-%m-%d')
     prev = now - datetime.timedelta(days=1)
 
-     url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=' + next.strftime('%Y-%m-%d') + '&reg_id=&data='
+    url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=' + next.strftime('%Y-%m-%d') + '&reg_id=&data='
     req = session.get(url)
 
     logger.info('url : ' + url)
