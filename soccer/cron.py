@@ -77,7 +77,7 @@ def set_future_match_data():
         if mpv_is_created:
             logger.info("%s get_or_create [SUCCSS]", match_predict_variable.match)
             
-        if int(t['odds_home']) + int(t['odds_away']) != 0:
+        if float(t['odds_home']) + float(t['odds_away']) != 0:
             match_predict_variable.h_x1 = 1 - (float(t['odds_home']) / (float(t['odds_home']) + float(t['odds_away'])))
             match_predict_variable.a_x1 = 1 - (float(t['odds_away']) / (float(t['odds_home']) + float(t['odds_away'])))
         else:
