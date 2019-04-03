@@ -6,6 +6,13 @@ import logging
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
+from django.shortcuts import render_to_response
+from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
+from soccer.pagingHelper import pagingHelper
+from soccer.models import FreeBoard
+
 from django.core.files.storage import default_storage
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
@@ -17,6 +24,10 @@ from . import models
 from . import serializers
 from .forms import ContactForm, FilesForm, ContactFormSet
 
+import requests
+from bs4 import BeautifulSoup
+
+
 # Create your views here.
 logger = logging.getLogger(__name__)
 
@@ -27,11 +38,27 @@ logger = logging.getLogger(__name__)
 class IndexPageView(TemplateView):
     template_name = "soccer/index2.html"
 
+    def get_league_data(self):
+        url = 'https://www.premierleague.com/stats/top/players'
+        s = requests.Session()
+
+        req = s.get(url)
+        soup = BeautifulSoup(req.text, 'html.parser')
+        #logger.info(soup.find_all('section', {'class':'mainWidget'}))
+        for e in soup.find_all('ul', {'class':'statsList'}):
+            return e
+
     def get_context_data(self, **kwargs):
         context = super(IndexPageView, self).get_context_data(**kwargs)
         context['leagues'] = models.Leagues.objects.all()
-        context['teams'] = models.Teams.objects.all()
+        context['teams'] = models.Teams.objects.filter(ranking__isnull=False).order_by('ranking')
+        context['matchs'] = models.Matchs.objects.order_by('date')[:5]
+        test = self.get_league_data()
+        logger.info(test)
+        context['test'] = test
         return context
+
+        
 
 class TimeLinePageView(TemplateView):
     template_name = "soccer/index.html"
@@ -136,3 +163,196 @@ class PaginationView(TemplateView):
 
 class MiscView(TemplateView):
     template_name = "soccer/misc.html"
+
+
+
+# 한글!!
+#===========================================================================================
+rowsPerPage = 2    
+ 
+
+def home(request):   
+    #OK
+    #url = '/listSpecificPageWork?current_page=1' 
+    #return HttpResponseRedirect(url)  
+
+    boardList = FreeBoard.objects.order_by('-id')[0:2]        
+    current_page =1
+    totalCnt = FreeBoard.objects.all().count() 
+    
+    pagingHelperIns = pagingHelper();
+    totalPageList = pagingHelperIns.getTotalPageList( totalCnt, rowsPerPage)
+    logger.info(totalPageList)
+    
+    return render_to_response('board/listSpecificPage.html', {'boardList': boardList, 'totalCnt': totalCnt, 
+                                                        'current_page':current_page ,'totalPageList':totalPageList} ) 
+    
+#===========================================================================================
+def show_write_form(request):
+    return render_to_response('board/writeBoard.html')  
+
+#===========================================================================================
+@csrf_exempt
+def DoWriteBoard(request):
+    logger.info(request.POST)
+    br = FreeBoard (subject = request.POST['subject'],
+                      name = request.POST['name'],
+                      mail = request.POST['email'],
+                      memo = request.POST['memo'],
+                      created_date = timezone.now(),
+                      hits = 0
+                     )
+    br.save()
+    
+    # 다시 조회    
+    url = 'board/listSpecificPageWork?current_page=1' 
+    return HttpResponseRedirect(url)    
+                   
+
+#===========================================================================================
+def viewWork(request):
+    pk= request.GET['memo_id']    
+    #print 'pk='+ pk
+    boardData = FreeBoard.objects.get(id=pk)
+    #print boardData.memo
+    
+    # Update DataBase
+    logger.info( 'boardData.hits', boardData.hits)
+    FreeBoard.objects.filter(id=pk).update(hits = boardData.hits + 1)
+      
+    return render_to_response('board/viewMemo.html', {'memo_id': request.GET['memo_id'], 
+                                                'current_page':request.GET['current_page'], 
+                                                'searchStr': request.GET['searchStr'], 
+                                                'boardData': boardData } )            
+   
+#===========================================================================================
+def listSpecificPageWork(request):    
+    current_page = request.GET['current_page']
+    totalCnt = FreeBoard.objects.all().count()                  
+    
+    logger.info( 'current_page=', current_page)
+        
+    # 페이지를 가지고 범위 데이터를 조회한다 => raw SQL 사용함
+    boardList = FreeBoard.objects.raw('SELECT Z.* FROM(SELECT X.*, ceil( rownum / %s ) as page FROM ( SELECT ID,SUBJECT,NAME, CREATED_DATE, MAIL,MEMO,HITS \
+                                        FROM SAMPLE_BOARD_FreeBoard  ORDER BY ID DESC ) X ) Z WHERE page = %s', [rowsPerPage, current_page])
+        
+    logger.info(  'boardList=',boardList, 'count()=', totalCnt)
+    
+    # 전체 페이지를 구해서 전달...
+    pagingHelperIns = pagingHelper();
+    
+    totalPageList = pagingHelperIns.getTotalPageList( totalCnt, rowsPerPage)
+        
+    logger.info( 'totalPageList', totalPageList)
+    
+    return render_to_response('board/listSpecificPage.html', {'boardList': boardList, 'totalCnt': totalCnt, 
+                                                        'current_page':int(current_page) ,'totalPageList':totalPageList} )
+
+#===========================================================================================
+
+def listSpecificPageWork_to_update(request):
+    memo_id = request.GET['memo_id']
+    current_page = request.GET['current_page']
+    searchStr = request.GET['searchStr']
+    
+    #totalCnt = FreeBoard.objects.all().count()
+    logger.info( 'memo_id', memo_id)
+    logger.info( 'current_page', current_page)
+    logger.info( 'searchStr', searchStr)
+    
+    boardData = FreeBoard.objects.get(id=memo_id)
+      
+    return render_to_response('board/viewForUpdate.html', {'memo_id': request.GET['memo_id'], 
+                                                'current_page':request.GET['current_page'], 
+                                                'searchStr': request.GET['searchStr'], 
+                                                'boardData': boardData } )    
+
+#===========================================================================================
+@csrf_exempt
+def updateBoard(request):
+    memo_id = request.POST['memo_id']
+    current_page = request.POST['current_page']
+    searchStr = request.POST['searchStr']        
+        
+    logger.info( '#### updateBoard ######')
+    logger.info( 'memo_id', memo_id)
+    logger.info( 'current_page', current_page)
+    logger.info( 'searchStr', searchStr)
+    
+    # Update DataBase
+    FreeBoard.objects.filter(id=memo_id).update(
+                                                  mail= request.POST['mail'],
+                                                  subject= request.POST['subject'],
+                                                  memo= request.POST['memo']
+                                                  )
+    
+    # Display Page => POST 요청은 redirection!
+    url = 'board/listSpecificPageWork?current_page=' + str(current_page)
+    return HttpResponseRedirect(url)    
+      
+
+#===========================================================================================
+def DeleteSpecificRow(request):
+    memo_id = request.GET['memo_id']
+    current_page = request.GET['current_page']
+    logger.info( '#### DeleteSpecificRow ######')
+    logger.info( 'memo_id', memo_id)
+    logger.info( 'current_page', current_page)
+    
+    p = FreeBoard.objects.get(id=memo_id)
+    p.delete()
+    
+    # Display Page    
+    # 마지막 메모를 삭제하는 경우, 페이지를 하나 줄임.
+    totalCnt = FreeBoard.objects.all().count()  
+    pagingHelperIns = pagingHelper();
+    
+    totalPageList = pagingHelperIns.getTotalPageList( totalCnt, rowsPerPage)
+    logger.info( 'totalPages', totalPageList)
+    
+    if( int(current_page) in totalPageList):
+        logger.info( 'current_page No Change')
+        current_page=current_page
+    else:
+        current_page= int(current_page)-1
+        logger.info( 'current_page--'            )
+            
+    url = 'board//listSpecificPageWork?current_page=' + str(current_page)
+    return HttpResponseRedirect(url)    
+
+#===========================================================================================
+@csrf_exempt
+def searchWithSubject(request):
+    searchStr = request.POST['searchStr']
+    logger.info( 'searchStr', searchStr)
+    
+    url = 'board/listSearchedSpecificPageWork?searchStr=' + searchStr +'&pageForView=1'
+    return HttpResponseRedirect(url)    
+         
+        
+#===========================================================================================    
+def listSearchedSpecificPageWork(request):
+    searchStr = request.GET['searchStr']
+    pageForView = request.GET['pageForView']
+    logger.info( 'listSearchedSpecificPageWork:searchStr', searchStr, 'pageForView=', pageForView)
+        
+    #boardList = FreeBoard.objects.filter(subject__contains=searchStr)
+    #print  'boardList=',boardList
+    
+    totalCnt = FreeBoard.objects.filter(subject__contains=searchStr).count()
+    logger.info(  'totalCnt=',totalCnt)
+    
+    pagingHelperIns = pagingHelper();
+    totalPageList = pagingHelperIns.getTotalPageList( totalCnt, rowsPerPage)
+    
+    # like 구문 적용방법 
+    boardList = FreeBoard.objects.raw("""SELECT Z.* FROM ( SELECT X.*, ceil(rownum / %s) as page \
+        FROM ( SELECT ID,SUBJECT,NAME, CREATED_DATE, MAIL,MEMO,HITS FROM SAMPLE_BOARD_FreeBoard \
+        WHERE SUBJECT LIKE '%%'||%s||'%%' ORDER BY ID DESC) X ) Z WHERE page = %s""", [rowsPerPage, searchStr, pageForView])
+        
+    logger.info('boardList=',boardList)
+    
+    return render_to_response('board/listSearchedSpecificPage.html', {'boardList': boardList, 'totalCnt': totalCnt, 
+                                                        'pageForView':int(pageForView) ,'searchStr':searchStr, 'totalPageList':totalPageList} )            
+    
+#===========================================================================================

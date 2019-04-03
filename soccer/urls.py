@@ -39,15 +39,28 @@ admin_router.register(r'predict', rest_views.MatchPredictVariableViewSet)
 admin_router.register(r'weight', rest_views.WeightViewSet) #TODO: Change view class name
 
 urlpatterns = [
-        ##WEB VIEW
-        #url(r'^$', views.HomePageView.as_view(), name='home'),
-        url(r'^$', views.IndexPageView.as_view(), name='index'),
-        url(r'^detail/(?P<match_id>.*)/$', views.DetailPageView.as_view(), name='detail'),
+    ##WEB VIEW
+    #url(r'^$', views.HomePageView.as_view(), name='home'),
+    url(r'^$', views.IndexPageView.as_view(), name='index'),
+    url(r'^detail/(?P<match_id>.*)/$', views.DetailPageView.as_view(), name='detail'),
 
-        ##REST VIEW
-        url(r'^admin/', include(admin_router.urls), name='admin'),
-        url(r'^v1/teams/name/(?P<team_name>.*)/$', rest_views.TeamViewSetByName.as_view(),
-            name='v1_teams_name'),
-        url(r'^v1/matchs/code/(?P<code>.*)/$', rest_views.MatchViewSetByCode.as_view(),
-            name='v1_matchs_code'),
+    ##FreeBoard View
+    url(r'^test/$', views.home),
+    url(r'^test/show_write_form/$', views.show_write_form),   
+    url(r'^test/DoWriteBoard/$', views.DoWriteBoard, name='writeBoard'),
+    url(r'^test/viewWork/$', views.viewWork),
+    url(r'^test/listSpecificPageWork/$', views.listSpecificPageWork, name='listSpecificPageWork'),
+    url(r'^test/listSpecificPageWork_to_update/$', views.listSpecificPageWork_to_update),
+    url(r'^test/updateBoard/$', views.updateBoard),       
+    url(r'^test/DeleteSpecificRow/$', views.DeleteSpecificRow),
+    url(r'^test/searchWithSubject/$', views.searchWithSubject),
+    url(r'^test/listSearchedSpecificPageWork/$', views.listSearchedSpecificPageWork),
+    
+
+    ##REST VIEW
+    url(r'^admin/', include(admin_router.urls), name='admin'),
+    url(r'^v1/teams/name/(?P<team_name>.*)/$', rest_views.TeamViewSetByName.as_view(),
+        name='v1_teams_name'),
+    url(r'^v1/matchs/code/(?P<code>.*)/$', rest_views.MatchViewSetByCode.as_view(),
+        name='v1_matchs_code'),
 ]
