@@ -39,23 +39,57 @@ class IndexPageView(TemplateView):
     template_name = "soccer/index2.html"
 
     def get_league_data(self):
+        rows = []
         url = 'https://www.premierleague.com/stats/top/players'
         s = requests.Session()
 
         req = s.get(url)
         soup = BeautifulSoup(req.text, 'html.parser')
         #logger.info(soup.find_all('section', {'class':'mainWidget'}))
-        for e in soup.find_all('ul', {'class':'statsList'}):
-            return e
+        for i, e in enumerate(soup.find_all('ul', {'class':'statsList'})):
+            #logger.info(e.previous_sibling.get_text())
+            rows.append(e.previous_sibling.get_text())
+            l = []
+            rd = e.find('li', {'class':'statsHero'})
+            l.append(rd.find('div', {'class':'pos'}).text)
+            l.append(rd.find('a', {'class':'statName'}).text)
+            l.append(rd.find('a', {'class':'statNameSecondary'}).text)
+            l.append(rd.find('div', {'class':'stat'}).text)
+            
+            #logger.info(",".join(l))
+            rows.append(",".join(l))
+
+            for r in e.find_all('li', {'class':'statsRow'}):
+                l = []
+                l.append(r.find('div', {'class':'pos'}).text)
+                l.append(r.find('a', {'class':'statName'}).text)
+                l.append(r.find('a', {'class':'statNameSecondary'}).text)
+                l.append(r.find('div', {'class':'stat'}).text)
+                #logger.info(",".join(l))
+                rows.append(",".join(l))
+            #logger.info("")
+
+
+
+            #else:
+            #    logger.info(e.find_all('li', {'class':'statsRow'}))
+        return rows
 
     def get_context_data(self, **kwargs):
         context = super(IndexPageView, self).get_context_data(**kwargs)
         context['leagues'] = models.Leagues.objects.all()
         context['teams'] = models.Teams.objects.filter(ranking__isnull=False).order_by('ranking')
-        context['matchs'] = models.Matchs.objects.order_by('date')[:5]
-        test = self.get_league_data()
-        logger.info(test)
-        context['test'] = test
+        context['matchs'] = models.Matchs.objects.order_by('-date')[:5]
+        rankings = self.get_league_data()
+        context['RankingStatsGoals'] = rankings[0:11]
+        context['RankingStatsAssists'] = rankings[11:22]
+        context['RankingStatsPasses'] = rankings[22:33]
+        context['RankingStatsMinutes'] = rankings[33:44]
+        context['RankingAttack'] = rankings[45:89]
+        context['RankingDefence'] = rankings[90:134]
+        context['RankingGoalKeeper'] = rankings[135:179]
+        context['RankingDisciline'] = rankings[180:224]
+
         return context
 
         

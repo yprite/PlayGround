@@ -37,12 +37,12 @@
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span class="category">Today Match</span>
+            <span class="category">Recent Match</span>
             <a class="d-flex align-items-center text-muted" href="#">
                 <span lass="refresh-button" data-feather="refresh-cw"></span>
             </a>
         </h6>
-        <span style="color:white;margin-left:20px;"> October 26th</span>
+        <!--<span style="color:white;margin-left:20px;"> October 26th</span>-->
         <ul class="nav flex-column mb-2">
           {% for match in matchs %}
           <a href="#" class="list-group-item list-group-item-action bg-light">
@@ -82,18 +82,42 @@
     <!-- Content -->
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="row">
-        <div class="col-lg-4 test">
+        <div class="col-md-3">
           <!--{% block main_left_content %} {% endblock %}-->
+          {% for e in RankingStatsGoals %}
+            {% if forloop.counter0 == 0 %}
+              <h6> {{ e }} </h6>
+            {% else %}
+              <li>{{ e }}</li>
+            {% endif %}
+          {% endfor %}
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-md-3">
+          {% for e in RankingStatsAssists %}
+            {% if forloop.counter0 == 0 %}
+              <h6> {{ e }} </h6>
+            {% else %}
+              <li>{{ e }}</li>
+            {% endif %}
+          {% endfor %}
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-md-3">
+          {% for e in RankingStatsPasses %}
+            {% if forloop.counter0 == 0 %}
+              <h6> {{ e }} </h6>
+            {% else %}
+              <li>{{ e }}</li>
+          {% endif %}
+        {% endfor %}
+        </div><!-- /.col-lg-4 -->
+        <div class="col-md-3">
+          {% for e in RankingStatsMinutes %}
+            {% if forloop.counter0 == 0 %}
+              <h6> {{ e }} </h6>
+            {% else %}
+              <li>{{ e }}</li>
+            {% endif %}
+          {% endfor %}
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
     </main>
@@ -107,14 +131,21 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
 <script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-<script type="text/javascript" src="{% static "test/test.js" %}"></script>
+<!--<script type="text/javascript" src="{% static "test/test.js" %}"></script>-->
 <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
 <script type="text/javascript">
   feather.replace()
   window.onload = function() {
-    console.log()
-    $('<ul class="statsList"><li class="statsHero"><div class="statInfo"><div class="pos">1</div><a class="statName" href="/players/4328/Sergio-Agüero/overview">Sergio<br/>Agüero</a><a class="statNameSecondary" href="/clubs/11/Manchester-City/overview">Man City</a><div class="stat"> 19 </div></div><div class="cardClubColour t43-bg"><div class="heroBadgeContainer"><div class="statsBadge"><div class="badge-20 t43"></div></div></div></div><div class="imgCropContainer"><img alt="Photo for Sergio Agüero" class="img statCardImg" data-player="p37572" data-script="pl_player-image" data-size="110x140" data-widget="player-image" src="//platform-static-files.s3.amazonaws.com/premierleague/photos/players/110x140/Photo-Missing.png"/></div></li><li class="statsRow"><div class="pos">2.</div><div class="teamInfo"><a class="statName" href="/players/5110/Pierre-Emerick-Aubameyang/overview">Pierre-Emerick Aubameyang</a><a class="statNameSecondary" href="/clubs/1/Arsenal/overview">Arsenal</a></div><div class="stat"><div class="statsBadge"><div class="badge-20 t3"></div></div> 17 </div></li><li class="statsRow"><div class="pos">2.</div><div class="teamInfo"><a class="statName" href="/players/3960/Harry-Kane/overview">Harry Kane</a><a class="statNameSecondary" href="/clubs/21/Tottenham-Hotspur/overview">Spurs</a></div><div class="stat"><div class="statsBadge"><div class="badge-20 t6"></div></div> 17 </div></li><li class="statsRow"><div class="pos">2.</div><div class="teamInfo"><a class="statName" href="/players/6519/Sadio-Mané/overview">Sadio Mané</a><a class="statNameSecondary" href="/clubs/10/Liverpool/overview">Liverpool</a></div><div class="stat"><div class="statsBadge"><div class="badge-20 t14"></div></div> 17 </div></li><li class="statsRow"><div class="pos">2.</div><div class="teamInfo"><a class="statName" href="/players/5178/Mohamed-Salah/overview">Mohamed Salah</a><a class="statNameSecondary" href="/clubs/10/Liverpool/overview">Liverpool</a></div><div class="stat"><div class="statsBadge"><div class="badge-20 t14"></div></div> 17 </div></li><li class="statsRow"><div class="pos">6.</div><div class="teamInfo"><a class="statName" href="/players/4316/Raheem-Sterling/overview">Raheem Sterling</a><a class="statNameSecondary" href="/clubs/11/Manchester-City/overview">Man City</a></div><div class="stat"><div class="statsBadge"><div class="badge-20 t43"></div></div> 15 </div></li><li class="statsRow"><div class="pos">7.</div><div class="teamInfo"><a class="statName" href="/players/4503/Eden-Hazard/overview">Eden Hazard</a><a class="statNameSecondary" href="/clubs/4/Chelsea/overview">Chelsea</a></div><div class="stat"><div class="statsBadge"><div class="badge-20 t8"></div></div> 13 </div></li><li class="statsRow"><div class="pos">7.</div><div class="teamInfo"><a class="statName" href="/players/6899/Alexandre-Lacazette/overview">Alexandre Lacazette</a><a class="statNameSecondary" href="/clubs/1/Arsenal/overview">Arsenal</a></div><div class="stat"><div class="statsBadge"><div class="badge-20 t3"></div></div> 13 </div></li><li class="statsRow"><div class="pos">7.</div><div class="teamInfo"><a class="statName" href="/players/8979/Jamie-Vardy/overview">Jamie Vardy</a><a class="statNameSecondary" href="/clubs/26/Leicester-City/overview">Leicester</a></div><div class="stat"><div class="statsBadge"><div class="badge-20 t13"></div></div> 13 </div></li><li class="statsRow"><div class="pos">10.</div><div class="teamInfo"><a class="statName" href="/players/24630/Richarlison/overview">Richarlison</a><a class="statNameSecondary" href="/clubs/7/Everton/overview">Everton</a></div><div class="stat"><div class="statsBadge"><div class="badge-20 t11"></div></div> 12 </div></li></ul>').appendTo(".test");
-    
+    /*
+    {% for e in rankings %}
+      var _content = '{{ e|safe }}'
+      _content = _content.replace("[", "");
+      _content = _content.replace("]", "");
+      _content = _content.replace(",", "");
+      console.log(_content);
+      $(_content).appendTo(".test");
+    {% endfor %}
+    */    
   }
 </script>
 </body>
