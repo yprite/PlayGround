@@ -129,6 +129,12 @@ def func2():
     print (next_date)
 
 def set_national_match_data():
+    pass
+
+def update_match_data():
+    '''
+    National, EPL, K-League
+    '''
     #Index Info
     # 0     : home_team
     # 1     : away_team
@@ -150,14 +156,17 @@ def set_national_match_data():
     # 17    : away_recent_loss
 
     #ts = dev_crawler.get_matchs_since_now()
-    ts = dev_crawler.set_init_data_2012_2013_2014_2015_2016_2017_2018_2019_NATIONAL()
+    ts = dev_crawler.get_data()
     logger.info("get_matchs_since_now() size= %d [SUCCESS]", len(ts))
     for t in ts:
+        is_get = False
         logger.info("DATA")
         logger.info(t)
         logger.info("---------------------------------------------------------------------")
-        if t['leagueName'] != 'INTERF':
-            logger.info('%s -> pass', t['leagueName'])
+        if t['leagueName'] in ['INTERF', 'ENG_PR', 'KOR D1']:
+            is_get = True
+
+        if is_get == False:
             continue
         
         league, league_is_created = models.Leagues.objects.get_or_create(name=t['leagueName'])
