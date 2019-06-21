@@ -16,6 +16,7 @@ from soccer.models import FreeBoard
 from django.core.files.storage import default_storage
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
+from django.db.models import Q
 from django.db.models.fields.files import FieldFile
 from django.views.generic import FormView
 from django.views.generic import TemplateView
@@ -80,18 +81,20 @@ class IndexPageView(TemplateView):
         context['leagues'] = models.Leagues.objects.all()
         context['teams'] = models.Teams.objects.filter(ranking__isnull=False).order_by('ranking')
         context['matchs'] = models.Matchs.objects.order_by('-date')[:5]
-        rankings = self.get_league_data()
-        context['RankingStatsGoals'] = rankings[0:11]
-        context['RankingStatsAssists'] = rankings[11:22]
-        context['RankingStatsPasses'] = rankings[22:33]
-        context['RankingStatsMinutes'] = rankings[33:44]
-        context['RankingAttack'] = rankings[45:89]
-        context['RankingDefence'] = rankings[90:134]
-        context['RankingGoalKeeper'] = rankings[135:179]
-        context['RankingDisciline'] = rankings[180:224]
-
+        #rankings = self.get_league_data()
+        
         return context
 
+
+class NewIndexPageView(TemplateView):
+    template_name = "soccer/list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(NewIndexPageView, self).get_context_data(**kwargs)
+        __korea = models.Teams.objects.get(name='한국')
+        context['matchs'] = models.Matchs.objects.filter(Q(home=__korea) | Q(away=__korea)).order_by('-date')
+        #context['matchs'] = models.Matchs.objects.order_by('-date')[:5]
+        return context
         
 
 class TimeLinePageView(TemplateView):

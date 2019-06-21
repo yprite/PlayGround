@@ -41,7 +41,8 @@ admin_router.register(r'weight', rest_views.WeightViewSet) #TODO: Change view cl
 urlpatterns = [
     ##WEB VIEW
     #url(r'^$', views.HomePageView.as_view(), name='home'),
-    url(r'^$', views.IndexPageView.as_view(), name='index'),
+    #url(r'^$', views.IndexPageView.as_view(), name='index'),
+    url(r'^$', views.NewIndexPageView.as_view(), name='index'),
     url(r'^detail/(?P<match_id>.*)/$', views.DetailPageView.as_view(), name='detail'),
 
     ##FreeBoard View

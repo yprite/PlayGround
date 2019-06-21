@@ -281,6 +281,107 @@ def set_init_data_2018_2019_EPL():
             records.append(d)
     session.close()
     return records
+'''
+U16
+U17
+U18
+U20
+U21
+U23
+WU-16
+'''
+def set_init_data_2012_2013_2014_2015_2016_2017_2018_2019_NATIONAL():
+    records = []
+    session = requests.Session()
+
+    now = datetime.datetime.now()
+    now_date = now.strftime('%Y-%m-%d')
+    for day in range(1000, 0, -1):
+        next = now - datetime.timedelta(days=day)
+
+        #url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=&reg_id=&data='
+        url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=' + next.strftime('%Y-%m-%d') + '&reg_id=&data='
+        req = session.get(url)
+        
+        logger.info('url : ' + url)
+        
+        html = req.text
+        
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        matchs = json.loads(str(soup))
+        for i, item in enumerate(matchs):
+            is_pass = False
+            if item['leagueName'] != 'INTERF':
+                continue
+            for generation in ['U15', 'U16', 'U17', 'U18', 'U19', 'U20', 'U21', 'U22', 'U23',
+                    'WU-15', 'WU-16', 'WU-17, WU-18', 'WU-19', 'WU-20', 'WU-21', 'WU-22', 'WU-23', 'W',
+                    '비치사커', '실내', '(N)']:
+                if generation in item['home_name'] or generation in item['away_name']:
+                    is_pass = True
+                    break
+
+            if is_pass == True:
+                continue
+            home_team = item['home_name']
+            away_team = item['away_name']
+            time = next.strftime('%Y-%m-%d') + ' ' + item['time'] + ':00'
+            code= item['code']
+            seq = item['seq']
+            odds_home = 0
+            odds_draw = 0
+            odds_away = 0
+            home_score = str(item['h_s_t'])
+            away_score = str(item['a_s_t'])
+            if item['h_rank'] == '':
+                home_rank = 0
+            else:
+                home_rank = str(item['h_rank'])
+            if item['a_rank'] == '':
+                away_rank = 0
+            else:
+                away_rank = str(item['a_rank'])
+
+            logger.info(" %s vs %s" % (home_team, away_team))
+            
+            if not item['odds'] is None:
+                odds_home = item['odds']['current']['home']
+                odds_draw = item['odds']['current']['draw']
+                odds_away = item['odds']['current']['away']
+            
+            detail_url = 'https://mobile.livescore.co.kr/sports/score_record/view.php?sports=soccer&code=livescore' + code + '&seq=' + seq
+            logger.info('detail : ' + detail_url)
+
+            #t1 = (home_team, away_team, time, code, seq, home_odd, draw_odd, away_odd)
+            #t2 = get_past_record(session, detail_url)
+            d = MATCHINFO.copy()
+            d['home_team']= str(home_team)
+            d['away_team']= str(away_team)
+            d['time']= time
+            d['code']= str(code)
+            d['seq']= str(seq)
+            d['leagueName'] = str(item['leagueName'])
+            d['h_score'] = home_score
+            d['a_score'] = away_score
+            d['h_rank'] = home_rank
+            d['a_rank'] = away_rank
+            d['odds_home']= str(odds_home)
+            d['odds_draw']= str(odds_draw)
+            d['odds_away']= str(odds_away)
+            t  = get_past_record(session, detail_url)
+            d['history_total']= str(t[0])
+            d['history_win']= str(t[1])
+            d['history_draw']= str(t[2])
+            d['history_loss']= str(t[3])
+            d['home_recent_win']= str(t[4])
+            d['home_recent_draw']= str(t[5])
+            d['home_recent_loss']= str(t[6])
+            d['away_recent_win']= str(t[7])
+            d['away_recent_draw']= str(t[8])
+            d['away_recent_loss']= str(t[9])
+            records.append(d)
+    session.close()
+    return records
 
 def get_match_result():
     records = []
