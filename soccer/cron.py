@@ -121,6 +121,7 @@ def set_result_match_data():
 
 def func1():
     set_future_match_data()
+    update_next_day_match_data_k_league()
 
 def func2():
     now = datetime.datetime.now()
@@ -131,7 +132,7 @@ def func2():
 def set_national_match_data():
     pass
 
-def update_match_data():
+def update_before_day_match_data():
     '''
     National, EPL, K-League
     '''
@@ -156,7 +157,7 @@ def update_match_data():
     # 17    : away_recent_loss
 
     #ts = dev_crawler.get_matchs_since_now()
-    ts = dev_crawler.get_data()
+    ts = dev_crawler.before_day_get_data()
     logger.info("get_matchs_since_now() size= %d [SUCCESS]", len(ts))
     for t in ts:
         is_get = False
@@ -241,41 +242,7 @@ def update_match_data():
                 logger.info("%s (%s vs %s) update [SUCCESS]", match.code, match.home, match.away)
 
 
-        match_predict_variable, mpv_is_created = models.MatchPredictVariables.objects.get_or_create(match=match)
-        if mpv_is_created:
-            logger.info("%s get_or_create [SUCCSS]", match_predict_variable.match)
-            
-        if float(t['odds_home']) + float(t['odds_away']) != 0:
-            match_predict_variable.h_x1 = 1 - (float(t['odds_home']) / (float(t['odds_home']) + float(t['odds_away'])))
-            match_predict_variable.a_x1 = 1 - (float(t['odds_away']) / (float(t['odds_home']) + float(t['odds_away'])))
-        else:
-            match_predict_variable.h_x1 = 0
-            match_predict_variable.a_x1 = 0
-            
-        if int(t['home_recent_win']) + int(t['home_recent_loss']) != 0:
-            match_predict_variable.h_x2 = float(t['home_recent_win']) / (float(t['home_recent_win']) + float(t['home_recent_loss']))
-            match_predict_variable.a_x2 = float(t['home_recent_loss']) / (float(t['home_recent_win']) + float(t['home_recent_loss']))
-        else:
-            match_predict_variable.h_x2 =0
-            match_predict_variable.a_x2 =0
-            
-        if int(t['history_win']) + int(t['history_loss']) != 0:
-            match_predict_variable.h_x3 = float(t['history_win']) / (float(t['history_win']) + float(t['history_loss']))
-            match_predict_variable.a_x3 = float(t['history_win']) / (float(t['history_win']) + float(t['history_loss']))
-        else:
-            match_predict_variable.h_x3 = 0
-            match_predict_variable.a_x3 = 0
-            
-        if int(t['home_recent_draw']) + int(t['away_recent_draw']) != 0:
-            match_predict_variable.h_x4 = float(t['home_recent_draw']) / (float(t['home_recent_draw']) + float(t['away_recent_draw']))
-            match_predict_variable.a_x4 = float(t['away_recent_draw']) / (float(t['home_recent_draw']) + float(t['away_recent_draw']))
-        else:
-            match_predict_variable.h_x4 = 0
-            match_predict_variable.a_x4 = 0
-
-        match_predict_variable.save()
-
-def update_next_day_match_data_k_league():
+def update_next_day_match_data():
     '''
     National, EPL, K-League
     '''
@@ -300,7 +267,7 @@ def update_next_day_match_data_k_league():
     # 17    : away_recent_loss
 
     #ts = dev_crawler.get_matchs_since_now()
-    ts = dev_crawler.get_data()
+    ts = dev_crawler.next_day_get_data()
     logger.info("get_matchs_since_now() size= %d [SUCCESS]", len(ts))
     for t in ts:
         is_get = False
@@ -344,8 +311,6 @@ def update_next_day_match_data_k_league():
                 match.home = h_team
                 match.away = a_team
                 match.league = league
-                match.hscore = t['h_score']
-                match.ascore = t['a_score']
                 match.save()
                 logger.info("%s (%s vs %s) save [SUCCSS]", match.seq, match.home, match.away)
             else:
@@ -354,8 +319,6 @@ def update_next_day_match_data_k_league():
                 match.home = h_team
                 match.away = a_team
                 match.league = league
-                match.hscore = t['h_score']
-                match.ascore = t['a_score']
                 match.save()
                 logger.info("%s (%s vs %s) update [SUCCESS]", match.seq, match.home, match.away)
 
@@ -368,8 +331,6 @@ def update_next_day_match_data_k_league():
                 match.home = h_team
                 match.away = a_team
                 match.league = league
-                match.hscore = t['h_score']
-                match.ascore = t['a_score']
                 match.save()
                 logger.info("%s (%s vs %s) save [SUCCSS]", match.code, match.home, match.away)
             else:
@@ -379,8 +340,6 @@ def update_next_day_match_data_k_league():
                 match.home = h_team
                 match.away = a_team
                 match.league = league
-                match.hscore = t['h_score']
-                match.ascore = t['a_score']
                 match.save()
                 logger.info("%s (%s vs %s) update [SUCCESS]", match.code, match.home, match.away)
 
