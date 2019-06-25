@@ -120,8 +120,8 @@ def set_result_match_data():
         a_team = ''
 
 def func1():
-    set_future_match_data()
-    update_next_day_match_data_k_league()
+    update_before_day_match_data()
+    update_next_day_match_data()
 
 def func2():
     now = datetime.datetime.now()
