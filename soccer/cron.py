@@ -158,7 +158,7 @@ def update_before_day_match_data():
 
     #ts = dev_crawler.get_matchs_since_now()
     ts = dev_crawler.before_day_get_data()
-    logger.info("get_matchs_since_now() size= %d [SUCCESS]", len(ts))
+    logger.info("before_day_get_data() size= %d [SUCCESS]", len(ts))
     for t in ts:
         is_get = False
         logger.info("DATA")
@@ -268,7 +268,7 @@ def update_next_day_match_data():
 
     #ts = dev_crawler.get_matchs_since_now()
     ts = dev_crawler.next_day_get_data()
-    logger.info("get_matchs_since_now() size= %d [SUCCESS]", len(ts))
+    logger.info("next_day_get_data() size= %d [SUCCESS]", len(ts))
     for t in ts:
         is_get = False
         logger.info("DATA")
