@@ -3,6 +3,7 @@ ENV/*
 *.pyc
 *.swp
 *.swo
+*.swn
 db.sqlite3
 settings.json
 log/*

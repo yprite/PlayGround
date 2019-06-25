@@ -97,10 +97,19 @@ class NewIndexPageView(TemplateView):
         
 
         __k_league = models.Leagues.objects.get(name='KOR D1')
-        context['matchs'] = models.Matchs.objects.filter(Q(league=__k_league)).order_by('-date')
+        matchs = models.Matchs.objects.filter(Q(league=__k_league)).order_by('-date')
+        context['matchs'] = matchs
+
+        for lmatch in matchs:
+            try:
+                predict = models.MatchPredictVariables.objects.get(match=lmatch)
+                print ("%s" % (predict.match))
+            except Exception as E:
+                print ("%s %s" % (lmatch, E))
         
         #Order by date : 5 items
         #context['matchs'] = models.Matchs.objects.all()#order_by('-date')[:5]
+        
         return context
         
 

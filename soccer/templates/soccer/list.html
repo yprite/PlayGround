@@ -1,4 +1,5 @@
 {% extends 'soccer/base.html' %}
+{% load index %}
 {% load bootstrap4 %}
 
 {% block title %}Soccer Matchs(Korea){% endblock %}
@@ -30,7 +31,8 @@
             <td>vs</td>
             <td>{{match.ascore}}</td>
             <td>{{match.away}}</td>
-            <td> </td>
+	    <!--<td>{{matchs|index:forloop.counter0}}</td>-->
+	    <td> </td>
         </tr>
         <tr>
             <td colspan=7></td>

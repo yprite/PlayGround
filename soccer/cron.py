@@ -194,7 +194,7 @@ def update_before_day_match_data():
         logger.info("away team %s done [SUCCSS]", a_team.name)
         
         if t['code'] is None:
-            match, match_is_created = models.Matchs.objects.get_or_create(code=t['seq'])
+            match, match_is_created = models.Matchs.objects.get_or_create(seq=t['seq'])
             if match_is_created:
                 logger.info("seq[%s] match_is_created is True", match.seq)
                 match.date = t['time']
@@ -215,9 +215,8 @@ def update_before_day_match_data():
                 match.ascore = t['a_score']
                 match.save()
                 logger.info("%s (%s vs %s) update [SUCCESS]", match.seq, match.home, match.away)
-
         else:
-            match, match_is_created = models.Matchs.objects.get_or_create(seq=t['code'])
+            match, match_is_created = models.Matchs.objects.get_or_create(code=t['code'])
             if match_is_created:
                 logger.info("%s match_is_created is True", match.code)
                 match.seq = t['seq']
@@ -304,7 +303,7 @@ def update_next_day_match_data():
         logger.info("away team %s done [SUCCSS]", a_team.name)
         
         if t['code'] is None:
-            match, match_is_created = models.Matchs.objects.get_or_create(code=t['seq'])
+            match, match_is_created = models.Matchs.objects.get_or_create(seq=t['seq'])
             if match_is_created:
                 logger.info("seq[%s] match_is_created is True", match.seq)
                 match.date = t['time']
@@ -323,7 +322,7 @@ def update_next_day_match_data():
                 logger.info("%s (%s vs %s) update [SUCCESS]", match.seq, match.home, match.away)
 
         else:
-            match, match_is_created = models.Matchs.objects.get_or_create(seq=t['code'])
+            match, match_is_created = models.Matchs.objects.get_or_create(code=t['code'])
             if match_is_created:
                 logger.info("%s match_is_created is True", match.code)
                 match.seq = t['seq']
