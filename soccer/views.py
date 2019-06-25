@@ -91,9 +91,16 @@ class NewIndexPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(NewIndexPageView, self).get_context_data(**kwargs)
-        __korea = models.Teams.objects.get(name='한국')
-        context['matchs'] = models.Matchs.objects.filter(Q(home=__korea) | Q(away=__korea)).order_by('-date')
-        #context['matchs'] = models.Matchs.objects.order_by('-date')[:5]
+        # filter by Korea team 
+        #__korea = models.Teams.objects.get(name='한국')
+        #context['matchs'] = models.Matchs.objects.filter(Q(home=__korea) | Q(away=__korea)).order_by('-date')
+        
+
+        __k_league = models.Leagues.objects.get(name='KOR D1')
+        context['matchs'] = models.Matchs.objects.filter(Q(league=__k_league)).order_by('-date')
+        
+        #Order by date : 5 items
+        #context['matchs'] = models.Matchs.objects.all()#order_by('-date')[:5]
         return context
         
 

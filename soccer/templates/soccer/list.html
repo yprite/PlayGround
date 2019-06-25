@@ -1,11 +1,12 @@
 {% extends 'soccer/base.html' %}
 {% load bootstrap4 %}
 
-{% block title %}Korea National Team Records{% endblock %}
+{% block title %}Soccer Matchs(Korea){% endblock %}
 
 {% block content %}
 
-<table class="table">
+
+<table class="table" style="text-align: center;">
     <thead>
         <tr>
             <th scope="col"></th>
@@ -19,26 +20,21 @@
     </thead>
     <tbody>
 	{% for match in matchs %}
-	<!--
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-		<th scope="row"> {{match.date }} </th>
-            <td></td>
-            <td></td>
-            <td></td>
-    	</tr>
-        -->
 	<tr>
-                <td> </td>
-		<td sytle="text-align:center">{{match.home}}</td>
-		<td>{{match.hscore}}</td>
-       	 	<td>vs</td>
-		<td>{{match.ascore}}</td>
-		<td>{{match.away}}</td>
-                <td> </td>
-    	</tr>
+            <td colspan=7>{{match.date}}</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td>{{match.home}}</td>
+            <td>{{match.hscore}}</td>
+            <td>vs</td>
+            <td>{{match.ascore}}</td>
+            <td>{{match.away}}</td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td colspan=7></td>
+        </tr>
 	{% endfor %}
     </tbody>
 </table>
