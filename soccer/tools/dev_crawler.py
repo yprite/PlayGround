@@ -70,6 +70,11 @@ def get_past_record(session, detail_url):
                 away_recent_loss))
     return ((0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
 
+def get_rank_record(session, detail_url):
+    detail_soup = BeautifulSoup(session.get(detail_url).text, 'html.parser')
+    divs = detail_soup.find_all('div', 'score_tbl_pop')
+    if not divs is None:
+
 
 #DB Structure
 # seq

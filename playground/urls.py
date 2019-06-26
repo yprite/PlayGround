@@ -24,7 +24,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'', include('chat.urls', namespace='chat')),
     #url(r'', include('chat.urls', namespace='chat')),
-    url(r'^$', comingsoon_views.IndexPageView.as_view(), name="coming_soon"),
+    #url(r'^$', comingsoon_views.IndexPageView.as_view(), name="coming_soon"),
+    url(r'^$', soccer_views.NewIndexPageView.as_view(), name="soccer"),
     #url(r'^$', views.HomePageView.as_view(), name="home"),
     #url(r"^formset$", views.DefaultFormsetView.as_view(), name="formset_default"),
     #url(r"^form$", views.DefaultFormView.as_view(), name="form_default"),
@@ -35,7 +36,7 @@ urlpatterns = [
     #url(r"^pagination$", views.PaginationView.as_view(), name="pagination"),
     #url(r"^misc$", views.MiscView.as_view(), name="misc"),
 
-    url(r'soccer/', include('soccer.urls', namespace='soccer')),
+    #url(r'soccer/', include('soccer.urls', namespace='soccer')),
     url(r'^goaccess/', include('goaccess.urls', namespace='goaccess')),
     #url(r'^playground/soccer/', include('soccer.urls', namespace='soccer')),
 ]

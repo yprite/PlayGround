@@ -87,9 +87,11 @@ class IndexPageView(TemplateView):
 
 
 class NewIndexPageView(TemplateView):
+    #<!--<td>{{next_matchs|index:forloop.counter0}}</td>-->
     template_name = "soccer/list.html"
 
     def get_context_data(self, **kwargs):
+        import datetime
         context = super(NewIndexPageView, self).get_context_data(**kwargs)
         # filter by Korea team 
         #__korea = models.Teams.objects.get(name='한국')
@@ -98,12 +100,36 @@ class NewIndexPageView(TemplateView):
 
         __k_league = models.Leagues.objects.get(name='KOR D1')
         matchs = models.Matchs.objects.filter(Q(league=__k_league)).order_by('-date')
-        context['matchs'] = matchs
+        next_matchs = []
+        ing_matchs = []
+        before_matchs = []
+
+        #TODO:the match status need to be add in model or update status
+        # status field <- get data from server via ajax,,,, etc
+
+        for match in matchs:
+            print (match)
+            date_diff = datetime.datetime.strptime(match.date, '%Y-%m-%d %H:%M:%S') - datetime.datetime.now()
+            if date_diff > datetime.timedelta(0,7200):
+                next_matchs.append(match)
+            elif date_diff < datetime.timedelta(0,7200) and date_diff >= datetime.timedelta(0,0):
+                ing_matchs.append(match)
+            else:
+                before_matchs.append(match)
+
+        context['next_matchs'] = next_matchs
+        context['ing_matchs'] = ing_matchs
+        context['before_matchs'] = before_matchs
 
         for lmatch in matchs:
             try:
                 predict = models.MatchPredictVariables.objects.get(match=lmatch)
-                print ("%s" % (predict.match))
+                '''
+                print ("%s, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f" % (predict.match, predict.h_x1, predict.h_x2, predict.h_x3,
+                    predict.h_x4, predict.h_x5, predict.h_x6, predict.a_x1, predict.a_x2,
+                    predict.a_x3, predict.a_x4, predict.a_x5, predict.a_x6))
+                '''
+                #winnner define 
             except Exception as E:
                 print ("%s %s" % (lmatch, E))
         
