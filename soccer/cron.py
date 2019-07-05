@@ -120,8 +120,12 @@ def set_result_match_data():
         a_team = ''
 
 def func1():
+    logger.info ("==================================================")
+    logger.info ("YPRITE:BEGIN")
     update_before_day_match_data()
     update_next_day_match_data()
+    logger.info ("YPRITE:END")
+    logger.info ("==================================================")
 
 def func2():
     now = datetime.datetime.now()
@@ -176,20 +180,16 @@ def update_before_day_match_data():
         h_team, h_team_is_craeted = models.Teams.objects.get_or_create(name=t['home_team'])
         if h_team_is_craeted:
             h_team.league = league
-            h_team.ranking = t['h_rank']
             h_team.save()
         else:
-            h_team.ranking = t['h_rank']
             h_team.save()
         logger.info("home team %s done [SUCCSS]", h_team.name)
             
         a_team, a_team_is_created = models.Teams.objects.get_or_create(name=t['away_team'])
         if a_team_is_created:
             a_team.league = league
-            a_team.ranking = t['a_rank']
             a_team.save()
         else:
-            a_team.ranking = t['a_rank']
             a_team.save()
         logger.info("away team %s done [SUCCSS]", a_team.name)
         

@@ -72,8 +72,19 @@ def get_past_record(session, detail_url):
 
 def get_rank_record(session, detail_url):
     detail_soup = BeautifulSoup(session.get(detail_url).text, 'html.parser')
+    teams =[]
     divs = detail_soup.find_all('div', 'score_tbl_pop')
     if not divs is None:
+        for i, div in enumerate(divs):
+            if i == 6:
+                for idx, tr in enumerate(div.find("table").find_all("tbody")[0].find_all("tr")):
+                    if tr.find("td").find("b") is None:
+                        continue
+                    else:
+                        teams.append((idx+1, tr.find("td").find("b").text))
+    return teams
+
+
 
 
 #DB Structure
@@ -709,14 +720,6 @@ def before_day_get_data():
             odds_away = 0
             home_score = str(item['h_s_t'])
             away_score = str(item['a_s_t'])
-            if item['h_rank'] == '':
-                home_rank = 0
-            else:
-                home_rank = str(item['h_rank'])
-            if item['a_rank'] == '':
-                away_rank = 0
-            else:
-                away_rank = str(item['a_rank'])
 
             logger.info("%s vs %s" % (home_team, away_team))
             
@@ -739,8 +742,6 @@ def before_day_get_data():
             d['leagueName'] = str(item['leagueName'])
             d['h_score'] = home_score
             d['a_score'] = away_score
-            d['h_rank'] = home_rank
-            d['a_rank'] = away_rank
             d['odds_home']= str(odds_home)
             d['odds_draw']= str(odds_draw)
             d['odds_away']= str(odds_away)
@@ -821,14 +822,6 @@ def next_day_get_data():
             odds_away = 0
             home_score = str(item['h_s_t'])
             away_score = str(item['a_s_t'])
-            if item['h_rank'] == '':
-                home_rank = 0
-            else:
-                home_rank = str(item['h_rank'])
-            if item['a_rank'] == '':
-                away_rank = 0
-            else:
-                away_rank = str(item['a_rank'])
 
             logger.info("%s vs %s" % (home_team, away_team))
             
@@ -856,7 +849,7 @@ def next_day_get_data():
             d['odds_home']= str(odds_home)
             d['odds_draw']= str(odds_draw)
             d['odds_away']= str(odds_away)
-            t  = get_past_record(session, detail_url)
+            t = get_past_record(session, detail_url)
             d['history_total']= str(t[0])
             d['history_win']= str(t[1])
             d['history_draw']= str(t[2])
@@ -867,6 +860,26 @@ def next_day_get_data():
             d['away_recent_win']= str(t[7])
             d['away_recent_draw']= str(t[8])
             d['away_recent_loss']= str(t[9])
+
+            r = get_rank_record(session, detail_url)
+            if r[0][0] == str(home_team):
+                d['h_rank'] = r[0][1]
+                d['a_rank'] = r[1][1]
+            else:
+                d['h_rank'] = r[1][1]
+                d['a_rank'] = r[0][1]
+
             records.append(d)
     session.close()
     return records
+
+def test_func1():
+
+    session = requests.Session()
+    ret = get_rank_record(session,
+            "https://livescore.co.kr/mobile/sports/score_record/view.php?sports=soccer&code=livescore11568279&seq=8995745")
+    print (ret[0][0])
+    print (ret[0][1])
+    print (ret[1][0])
+    print (ret[1][1])
+

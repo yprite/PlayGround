@@ -174,7 +174,7 @@ LOGGING = {
 
 #Crontab
 CRONJOBS = [
-    ('* */6 * * *', 'soccer.cron.func1')
+    ('0 */2 * * *', 'soccer.cron.func1')
 ]
 
 # Internationalization
