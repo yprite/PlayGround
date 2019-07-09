@@ -844,8 +844,6 @@ def next_day_get_data():
             d['leagueName'] = str(item['leagueName'])
             d['h_score'] = home_score
             d['a_score'] = away_score
-            d['h_rank'] = home_rank
-            d['a_rank'] = away_rank
             d['odds_home']= str(odds_home)
             d['odds_draw']= str(odds_draw)
             d['odds_away']= str(odds_away)
