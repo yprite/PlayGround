@@ -70,22 +70,57 @@ def get_past_record(session, detail_url):
                 away_recent_loss))
     return ((0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
 
-def get_rank_record(session, detail_url):
-    detail_soup = BeautifulSoup(session.get(detail_url).text, 'html.parser')
-    teams =[]
-    divs = detail_soup.find_all('div', 'score_tbl_pop')
-    if not divs is None:
-        for i, div in enumerate(divs):
-            if i == 6:
-                for idx, tr in enumerate(div.find("table").find_all("tbody")[0].find_all("tr")):
-                    if tr.find("td").find("b") is None:
-                        continue
-                    else:
-                        teams.append((idx+1, tr.find("td").find("b").text))
-    return teams
+def get_rank_record():
+    pass
 
-
-
+def get_k_league_rank():
+    session = requests.Session()
+    url = "https://sports.news.naver.com/kfootball/record/index.nhn?category=kleague"
+    content = BeautifulSoup(session.get(url).text, 'html.parser')
+    div = content.find_all('div', id='regular')
+    list = []
+    for team in div[0].find('tbody', id='regularGroup_table').find_all('tr'):
+        line = []
+        line.append(team.th.strong.text)
+        for idx, row in enumerate(team.find_all('td')):
+            if idx == 0:
+                #Team Name
+                line.append(row.div.span.text)
+            elif idx == 1:
+                #Number of match
+                line.append(row.text)
+            elif idx == 2:
+                #Score
+                line.append(row.strong.text)
+            elif idx == 3:
+                #Win
+                line.append(row.text)
+            elif idx == 3:
+                #Draw
+                line.append(row.text)
+            elif idx == 4:
+                #Defeat
+                line.append(row.text)
+            elif idx == 5:
+                #Goal
+                line.append(row.text)
+            elif idx == 6:
+                #Goal
+                line.append(row.text)
+            elif idx == 7:
+                #Loss
+                line.append(row.text)
+            elif idx == 8:
+                #Diff
+                line.append(row.text)
+            elif idx == 9:
+                #Assist
+                line.append(row.text)
+            elif idx == 10:
+                #Foul
+                line.append(row.text)
+        list.append(line)
+    return list
 
 #DB Structure
 # seq
@@ -858,14 +893,6 @@ def next_day_get_data():
             d['away_recent_win']= str(t[7])
             d['away_recent_draw']= str(t[8])
             d['away_recent_loss']= str(t[9])
-
-            r = get_rank_record(session, detail_url)
-            if r[0][0] == str(home_team):
-                d['h_rank'] = r[0][1]
-                d['a_rank'] = r[1][1]
-            else:
-                d['h_rank'] = r[1][1]
-                d['a_rank'] = r[0][1]
 
             records.append(d)
     session.close()

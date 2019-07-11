@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     'soccer',
     'comingsoon',
+    'nojapan'
     #    'chat', : python3.5
 ]
 
@@ -154,6 +155,11 @@ LOGGING = {
         } 
     }, 
     'loggers': {
+        'nojpan': {
+            'handlers': ['logfile'],
+            'level': 'INFO',
+            'propagate': True,
+        },
         'soccer': {
             'handlers': ['logfile'],
             'level': 'INFO',

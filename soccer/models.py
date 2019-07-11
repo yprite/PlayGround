@@ -87,11 +87,22 @@ class Teams(models.Model):
     date =  models.DateField(auto_now_add=True)
     league = models.ForeignKey(Leagues, on_delete=None, null=True, blank=True)
     stadium = models.ForeignKey(Stadiums, on_delete=None, null=True, blank=True)
-    ranking = models.IntegerField(null=True)
     mmr = models.IntegerField(null=True, blank=True) #match making rating
     fifaid = models.IntegerField(null=True, blank=True)
     def __str__(self):
         return self.name
+
+class Seasons(models.Model):
+    team = models.ForeignKey(Teams, on_delete=None)
+    season = models.CharField(max_length=200)
+    rank = models.IntegerField(null=True, blank=True)
+    win = models.IntegerField(null=True, blank=True)
+    draw = models.IntegerField(null=True, blank=True)
+    defeat = models.IntegerField(null=True, blank=True)
+    goal = models.IntegerField(null=True, blank=True)
+    loss = models.IntegerField(null=True, blank=True)
+    assist  = models.IntegerField(null=True, blank=True)
+    foul = models.IntegerField(null=True, blank=True)
 
 class Matchs(models.Model):
     seq = models.CharField(max_length=200, null=True)

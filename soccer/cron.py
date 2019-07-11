@@ -6,6 +6,8 @@ import tracemalloc
 from .tools import dev_crawler
 from . import models
 
+from django.db.models import Q
+
 logger = logging.getLogger(__name__)
 
 def my_cron_job():
@@ -124,6 +126,7 @@ def func1():
     logger.info ("YPRITE:BEGIN")
     update_before_day_match_data()
     update_next_day_match_data()
+    update_team_rank()
     logger.info ("YPRITE:END")
     logger.info ("==================================================")
 
@@ -285,20 +288,12 @@ def update_next_day_match_data():
         h_team, h_team_is_craeted = models.Teams.objects.get_or_create(name=t['home_team'])
         if h_team_is_craeted:
             h_team.league = league
-            h_team.ranking = t['h_rank']
-            h_team.save()
-        else:
-            h_team.ranking = t['h_rank']
             h_team.save()
         logger.info("home team %s done [SUCCSS]", h_team.name)
             
         a_team, a_team_is_created = models.Teams.objects.get_or_create(name=t['away_team'])
         if a_team_is_created:
             a_team.league = league
-            a_team.ranking = t['a_rank']
-            a_team.save()
-        else:
-            a_team.ranking = t['a_rank']
             a_team.save()
         logger.info("away team %s done [SUCCSS]", a_team.name)
         
@@ -376,3 +371,19 @@ def update_next_day_match_data():
             match_predict_variable.a_x4 = 0
 
         match_predict_variable.save()
+
+def update_team_rank():
+    '''
+    K-League rank update
+    '''
+    for row in dev_crawler.get_k_league_rank():
+        try:
+            print (row[1])
+            print ("--------------------------------------------")
+            team = models.Teams.objects.filter(name__contains=row[1])
+            #matchs = models.Matchs.objects.filter(Q(league=__k_league)).order_by('-date')
+            print (team)
+            print ("")
+        except Exception as E:
+            print (E)
+

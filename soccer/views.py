@@ -70,8 +70,6 @@ class IndexPageView(TemplateView):
                 rows.append(",".join(l))
             #logger.info("")
 
-
-
             #else:
             #    logger.info(e.find_all('li', {'class':'statsRow'}))
         return rows
@@ -84,14 +82,6 @@ class IndexPageView(TemplateView):
         #rankings = self.get_league_data()
         
         return context
-
-
-class NoJapanIdexPageView(TemplateView):
-    template_name = "nojapan/index.html"
-    def get_context_data(self, **kwargs):
-        context = super(NoJapanIdexPageView, self).get_context_data(**kwargs)
-        return context
-
 
 class NewIndexPageView(TemplateView):
     #<!--<td>{{next_matchs|index:forloop.counter0}}</td>-->
