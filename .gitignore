@@ -7,3 +7,4 @@ ENV/*
 db.sqlite3
 settings.json
 log/*
+download/*
