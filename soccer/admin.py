@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Roles, Levels
-from .models import Nations, Users, Positions, Members, Stadiums, Leagues, Teams, Matchs
+from .models import Nations, Users, Positions, Members, Stadiums, Leagues, Teams, Matchs, Seasons
 from .models import MatchPredictVariables, Weigth, MemberAbility, MemberHistory
 
 
@@ -21,5 +21,5 @@ admin.site.register(Matchs)
 admin.site.register(MatchPredictVariables)
 admin.site.register(Weigth)
 admin.site.register(MemberAbility)
-admin.site.register(MemberHistory)
+admin.site.register(Seasons)
 

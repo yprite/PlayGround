@@ -93,8 +93,8 @@ class Teams(models.Model):
         return self.name
 
 class Seasons(models.Model):
-    team = models.ForeignKey(Teams, on_delete=None)
-    season = models.CharField(max_length=200)
+    team = models.ForeignKey(Teams, on_delete=None, null=True, blank=True)
+    season = models.CharField(max_length=200, null=True, blank=True)
     rank = models.IntegerField(null=True, blank=True)
     win = models.IntegerField(null=True, blank=True)
     draw = models.IntegerField(null=True, blank=True)
@@ -103,6 +103,8 @@ class Seasons(models.Model):
     loss = models.IntegerField(null=True, blank=True)
     assist  = models.IntegerField(null=True, blank=True)
     foul = models.IntegerField(null=True, blank=True)
+    def __str__(self):
+        return self.team.name
 
 class Matchs(models.Model):
     seq = models.CharField(max_length=200, null=True)

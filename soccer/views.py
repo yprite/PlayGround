@@ -127,10 +127,10 @@ class NewIndexPageView(TemplateView):
                     predict.h_x4, predict.h_x5, predict.h_x6, predict.a_x1, predict.a_x2,
                     predict.a_x3, predict.a_x4, predict.a_x5, predict.a_x6))
                 '''
-                #x1 : odd
-                #x2 : recent
-                #x3 : history
-                #rank
+                #a  : odd       - x1
+                #b  : recent    - x2 
+                #c  : history   - x3
+                #d  : rank      - x4
 
 
                 #winnner define 

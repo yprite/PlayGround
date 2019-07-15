@@ -699,7 +699,7 @@ def before_day_get_data():
 
     now = datetime.datetime.now()
     now_date = now.strftime('%Y-%m-%d')
-    for day in range(2, 0, -1):
+    for day in range(1, 0, -1):
         next = now - datetime.timedelta(days=day)
 
         #url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=&reg_id=&data='
@@ -801,7 +801,7 @@ def next_day_get_data():
 
     now = datetime.datetime.now()
     now_date = now.strftime('%Y-%m-%d')
-    for day in range(0, 2, 1):
+    for day in range(0, 1, 1):
         next = now + datetime.timedelta(days=day)
 
         #url  = 'https://livescore.co.kr/developer/?process=score_board&what_phone=android&sports=soccer&date=&reg_id=&data='

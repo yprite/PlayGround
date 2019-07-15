@@ -345,30 +345,18 @@ def update_next_day_match_data():
         if float(t['odds_home']) + float(t['odds_away']) != 0:
             match_predict_variable.h_x1 = 1 - (float(t['odds_home']) / (float(t['odds_home']) + float(t['odds_away'])))
             match_predict_variable.a_x1 = 1 - (float(t['odds_away']) / (float(t['odds_home']) + float(t['odds_away'])))
-        else:
-            match_predict_variable.h_x1 = 0
-            match_predict_variable.a_x1 = 0
             
         if int(t['home_recent_win']) + int(t['home_recent_loss']) != 0:
             match_predict_variable.h_x2 = float(t['home_recent_win']) / (float(t['home_recent_win']) + float(t['home_recent_loss']))
             match_predict_variable.a_x2 = float(t['home_recent_loss']) / (float(t['home_recent_win']) + float(t['home_recent_loss']))
-        else:
-            match_predict_variable.h_x2 =0
-            match_predict_variable.a_x2 =0
             
         if int(t['history_win']) + int(t['history_loss']) != 0:
             match_predict_variable.h_x3 = float(t['history_win']) / (float(t['history_win']) + float(t['history_loss']))
             match_predict_variable.a_x3 = float(t['history_win']) / (float(t['history_win']) + float(t['history_loss']))
-        else:
-            match_predict_variable.h_x3 = 0
-            match_predict_variable.a_x3 = 0
             
         if int(t['home_recent_draw']) + int(t['away_recent_draw']) != 0:
             match_predict_variable.h_x4 = float(t['home_recent_draw']) / (float(t['home_recent_draw']) + float(t['away_recent_draw']))
             match_predict_variable.a_x4 = float(t['away_recent_draw']) / (float(t['home_recent_draw']) + float(t['away_recent_draw']))
-        else:
-            match_predict_variable.h_x4 = 0
-            match_predict_variable.a_x4 = 0
 
         match_predict_variable.save()
 
@@ -376,14 +364,27 @@ def update_team_rank():
     '''
     K-League rank update
     '''
+    k_league = models.Leagues.objects.get(name='KOR D1')
     for row in dev_crawler.get_k_league_rank():
         try:
             print (row[1])
             print ("--------------------------------------------")
-            team = models.Teams.objects.filter(name__contains=row[1])
-            #matchs = models.Matchs.objects.filter(Q(league=__k_league)).order_by('-date')
-            print (team)
-            print ("")
+            team = models.Teams.objects.get(name__contains=row[1], league=k_league)
+            season, is_created = models.Seasons.objects.get_or_create(team=team)
+            season.season = datetime.datetime.now().strftime('%Y-%m-%d')
+            season.team = team
+            season.rank = row[0]
+            season.win = row[2]
+            season.draw = row[3]
+            season.defeat = row[4]
+            season.goal = row[5]
+            season.loss = row[6]
+            season.assist = row[7]
+            season.foult = row[8]
+            season.save()
+            print ("Update (%s %s %s %s %s %s %s %s)" % (row[0], row[2], row[3], row[4], row[5], row[6], row[7], row[8]))
+            print ("--------------------------------------------")
+
         except Exception as E:
             print (E)
 
