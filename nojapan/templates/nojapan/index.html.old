@@ -1,0 +1,65 @@
+{% extends 'soccer/bootstrap.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+
+{% block bootstrap4_content %}
+<!-----------
+https://colorlib.com/wp/template/theplaza/
+google ad : https://www.google.com/adsense/new/u/0/pub-8082243736281483/home?hl=ko&signup-no-redirect=true
+image : https://cdn.clien.net/web/api/file/F01/8662931/2409f199ee2b22.png?w=780&h=30000&gif=true
+-->
+<link rel="stylesheet" type="text/css" href="{% static "nojapan/css/style.css" %}">
+
+<div class="container">
+    <h1>{% block title %}{% endblock %}</h1>
+
+    {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+    {% block content %}
+    
+    <!-- Product section -->
+    <section class="product-section spad">
+        <div class="container">
+            <img src="{% static "nojapan/img/bg.png" %}" alt="">
+            <ul class="list-inline controls">
+                <li class="control list-inline-item" data-filter="all">ALL</li>
+	        {% for category in categories %}
+                    <li class="list-inline-item" data-filter=".{{category.value}}">{{category.name}}</li>
+                {% endfor %}
+            </ul>
+
+            <div class="row" id="product-filter">
+	        {% for company in companies %}
+                    <div class="mix col-lg-3 col-md-6 {{ company.category.value }}">
+                        <div class="product-item">
+                            <figure>
+                                <img src="{% static  comapny.image %}" width="372" height="100" alt="">
+                                <div class="pi-meta">
+                                    <div class="pi-m-left">
+                                        <a href="{{ comapny.wiki }}"><p>About</p></a>
+				    </div>
+				    <div class="pi-m-right">
+                                        <p>{{ company.name }}</p>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Product section end -->
+    {% endblock %}
+    <!--====== Javascripts & Jquery ======-->
+	<script type="text/javascript" src="{% static "nojapan/js/jquery-3.2.1.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "nojapan/js/bootstrap.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "nojapan/js/owl.carousel.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "nojapan/js/mixitup.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "nojapan/js/sly.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "nojapan/js/jquery.nicescroll.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "nojapan/js/main.js" %}"></script>
+    
+</div>
+{% endblock %}

@@ -26,7 +26,7 @@ urlpatterns = [
     #url(r'', include('chat.urls', namespace='chat')),
     #url(r'', include('chat.urls', namespace='chat')),
     #url(r'^$', comingsoon_views.IndexPageView.as_view(), name="coming_soon"),
-    url(r'^$', nojapan_views.NoJapanIdexPageView.as_view(), name="nojapn"),
+    #url(r'^$', nojapan_views.NoJapanIdexPageView.as_view(), name="nojapn"),
     #url(r'^$', views.HomePageView.as_view(), name="home"),
     #url(r"^formset$", views.DefaultFormsetView.as_view(), name="formset_default"),
     #url(r"^form$", views.DefaultFormView.as_view(), name="form_default"),
@@ -37,6 +37,7 @@ urlpatterns = [
     #url(r"^pagination$", views.PaginationView.as_view(), name="pagination"),
     #url(r"^misc$", views.MiscView.as_view(), name="misc"),
 
+    url(r'nojapan/', include('nojapan.urls', namespace='nojapan')),
     url(r'soccer/', include('soccer.urls', namespace='soccer')),
     url(r'^goaccess/', include('goaccess.urls', namespace='goaccess')),
     #url(r'^playground/soccer/', include('soccer.urls', namespace='soccer')),

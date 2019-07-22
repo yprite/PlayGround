@@ -20,4 +20,6 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.NoJapanIdexPageView.as_view(), name='index'),
+    url(r'^$', views.NoJapanIdexPageView.as_view(), name='nojapn_index'),
+    url(r'desc/(?P<id>[\w-]+)/$', views.description, name='nojapan_desc'),
+]

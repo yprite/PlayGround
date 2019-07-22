@@ -104,6 +104,7 @@ DATABASES = {
 		'PORT':'3306'
 	}
 }
+DATABASES_OPTIONS = {'charset' : 'utf8'}
 
 
 
