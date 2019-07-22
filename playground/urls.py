@@ -16,13 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
+from django.http import HttpResponse
 
 from soccer import views as soccer_views
 from comingsoon import views as comingsoon_views
 from nojapan import views as nojapan_views
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^robots.txt$',lambda r: HttpResponse("User-agent: *\nDisallow: /", content_type="text/plain")),
+
     #url(r'', include('chat.urls', namespace='chat')),
     #url(r'', include('chat.urls', namespace='chat')),
     #url(r'^$', comingsoon_views.IndexPageView.as_view(), name="coming_soon"),
@@ -41,5 +45,6 @@ urlpatterns = [
     url(r'nojapan/', include('nojapan.urls', namespace='nojapan')),
     url(r'soccer/', include('soccer.urls', namespace='soccer')),
     url(r'^goaccess/', include('goaccess.urls', namespace='goaccess')),
+    
     #url(r'^playground/soccer/', include('soccer.urls', namespace='soccer')),
 ]
