@@ -25,7 +25,7 @@ from nojapan import views as nojapan_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^robots.txt$',lambda r: HttpResponse("User-agent: *\nDisallow: /", content_type="text/plain")),
+    url(r'^robots.txt$',lambda r: HttpResponse("User-agent: *\nallow:/", content_type="text/plain")),
 
     #url(r'', include('chat.urls', namespace='chat')),
     #url(r'', include('chat.urls', namespace='chat')),
