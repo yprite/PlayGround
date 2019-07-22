@@ -60,10 +60,13 @@ image : https://cdn.clien.net/web/api/file/F01/8662931/2409f199ee2b22.png?w=780&
             -->
             <div class="row">
                 <div class="col-md-12 mb-3">
+                    <input id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for names.." type="text">
+                    <!--
                     <form class="form-inline">
                         <input id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for names.." type="text">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add</button>
                     </form>
+		    -->
                 </div>
             </div>
             <!--
@@ -88,9 +91,11 @@ image : https://cdn.clien.net/web/api/file/F01/8662931/2409f199ee2b22.png?w=780&
                             <h6 class="card-subtitle mb-2 text-muted">{{company_categories|index:forloop.counter0}}</h6>
                             <p class="card-text" id="company_{{company.id}}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus nequ.</p>
                         </div>
+			<!--
                         <div class="card-footer">
                             <a href="{{ company.wiki }}" class="btn btn-primary">Find Out More!</a>
                         </div>
+			-->
                     </div>
                  </div>
                 {% endfor %}
@@ -190,6 +195,18 @@ image : https://cdn.clien.net/web/api/file/F01/8662931/2409f199ee2b22.png?w=780&
                */
               title = cards[i].querySelector(".card-header h4.card-title");
               if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                  cards[i].style.display = "";
+              } else {
+                  cards[i].style.display = "none";
+              }
+              body = cards[i].querySelector(".card-body h6.card-subtitle");
+              if (body.innerText.toUpperCase().indexOf(filter) > -1) {
+                  cards[i].style.display = "";
+              } else {
+                  cards[i].style.display = "none";
+              }
+              category = cards[i].querySelector(".card-body p.card-text");
+              if (category.innerText.toUpperCase().indexOf(filter) > -1) {
                   cards[i].style.display = "";
               } else {
                   cards[i].style.display = "none";
