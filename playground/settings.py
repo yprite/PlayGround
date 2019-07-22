@@ -28,7 +28,7 @@ DEBUG = False
 
 #ALLOWED_HOSTS = []
 #ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', '210.89.189.125', 'playfun.kr']
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'playfun.kr', 'www.playfun.kr']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'playfun.kr', 'www.playfun.kr', 'nojapan.info', 'www.nojapan.info']
 
 
 # Application definition

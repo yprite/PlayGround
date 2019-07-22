@@ -37,6 +37,7 @@ urlpatterns = [
     #url(r"^pagination$", views.PaginationView.as_view(), name="pagination"),
     #url(r"^misc$", views.MiscView.as_view(), name="misc"),
 
+    url(r'^$', nojapan_views.NoJapanIdexPageView.as_view(), name="nojapn"),
     url(r'nojapan/', include('nojapan.urls', namespace='nojapan')),
     url(r'soccer/', include('soccer.urls', namespace='soccer')),
     url(r'^goaccess/', include('goaccess.urls', namespace='goaccess')),
