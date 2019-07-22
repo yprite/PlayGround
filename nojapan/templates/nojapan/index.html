@@ -9,6 +9,7 @@
 <meta name="naver-site-verification" content="0a16f480bb2abf046db53c098f0ced598167722b"/>
 <title>No Japan</title>
 <link rel="canonical" href="http://nojapan.info/">
+<link rel="icon" type="image/png" sizes="16x16" href="{%static "nojapan/img/favicon.png" %}">
 <meta name="description" content="일본 불매운동 사이트 - nojapan">
 <meta name="Keywords" content="no재팬, 일본 불매운동 포스터, nonojapan, no no japan 스티커, 노노재팬리스트, 토착왜구, 노재팬, 노노브랜드, no japan 사이트">
 
@@ -47,25 +48,43 @@ image : https://cdn.clien.net/web/api/file/F01/8662931/2409f199ee2b22.png?w=780&
     {% block content %}
     
     <!-- Product section -->
-    <section class="product-section spad">
+    <section class="company-section spad">
         <div class="container">
             <!--
             <ul class="list-inline controls">
                 <li class="control list-inline-item" data-filter="all">ALL</li>
-	            {% for category in categories %}
+	        {% for category in categories %}
                     <li class="list-inline-item" data-filter=".{{category.value}}">{{category.name}}</li>
                 {% endfor %}
             </ul>
             -->
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <form class="form-inline">
+                        <input id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for names.." type="text">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add</button>
+                    </form>
+                </div>
+            </div>
+            <!--
+            <nav class="navbar sticky-top navbar-light bg-light">
+               <form class="form-inline">
+                   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </nav>
+            -->
 
-            <div class="row" id="product-filter">
+            <div class="row" id="company-board">
 	        {% for company in companies %}
-            <div class="col-lg-3 col-md-6 mb-4 {{company.category.value }}">
+                <div class="col-lg-3 col-md-6 mb-4 {{company.category.value }} card-div">
                     <div class="card h-100">
+                        <div class="card-header">
+                            <h4 class="card-title"><a href="{{company.wiki}}">{{ company.name}}</a></h4>
+                        </div>
                         <!--- 500 x 325 -->
                         <!--<img class="card-img-top" style="width:500px;height:325;" src="{% static ""%}{{company.image}}" alt="">-->
                         <div class="card-body">
-                            <h4 class="card-title">{{ company.name }}</h4>
                             <h6 class="card-subtitle mb-2 text-muted">{{company_categories|index:forloop.counter0}}</h6>
                             <p class="card-text" id="company_{{company.id}}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus nequ.</p>
                         </div>
@@ -80,13 +99,56 @@ image : https://cdn.clien.net/web/api/file/F01/8662931/2409f199ee2b22.png?w=780&
     </section>
     <!-- Product section end -->
     {% endblock %}
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add company & product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="company-name" class="col-form-label"> Company Name</label>
+                                <input type="text" class="form-control" id="company-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="category-name" class="col-form-label"> Category Name</label>
+                                <input type="text" class="form-control" id="category-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="product-name" class="col-form-label"> Product Name</label>
+                                <input type="text" class="form-control" id="product-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="Replace-name" class="col-form-label"> Replace Name</label>
+                                <input type="text" class="form-control" id="replace-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="wiki-text" class="col-form-label">Wiki:</label>
+                                <textarea class="form-control" id="wiki-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--====== Javascripts & Jquery ======-->
-	<script type="text/javascript" src="{% static "nojapan/js/jquery-3.2.1.min.js" %}"></script>
-	<script type="text/javascript" src="{% static "nojapan/js/bootstrap.min.js" %}"></script>
-	<script type="text/javascript" src="{% static "nojapan/js/owl.carousel.min.js" %}"></script>
-	<script type="text/javascript" src="{% static "nojapan/js/mixitup.min.js" %}"></script>
-	<script type="text/javascript" src="{% static "nojapan/js/sly.min.js" %}"></script>
-	<script type="text/javascript" src="{% static "nojapan/js/jquery.nicescroll.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "nojapan/js/jquery-3.2.1.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "nojapan/js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "nojapan/js/owl.carousel.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "nojapan/js/mixitup.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "nojapan/js/sly.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "nojapan/js/jquery.nicescroll.min.js" %}"></script>
     <script type="text/javascript" src="{% static "nojapan/js/main.js" %}"></script>
     <script>
         $(document).ready(function() {
@@ -114,7 +176,28 @@ image : https://cdn.clien.net/web/api/file/F01/8662931/2409f199ee2b22.png?w=780&
             }
 
         });
-</script>
+        
+      function myFunction() {
+          var input, filter, cards, cardContainer, h5, title, i;
+          input = document.getElementById("myFilter");
+          filter = input.value.toUpperCase();
+          cardContainer = document.getElementById("company-board");
+          cards = cardContainer.getElementsByClassName("card-div");
+          for (i = 0; i < cards.length; i++) {
+              /*
+              if (window.CP.shouldStopExecution(0))
+                  break;
+               */
+              title = cards[i].querySelector(".card-header h4.card-title");
+              if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                  cards[i].style.display = "";
+              } else {
+                  cards[i].style.display = "none";
+              }
+          }window.CP.exitedLoop(0);
+      }
+    
+    </script>
     
 </div>
 {% endblock %}
