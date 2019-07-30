@@ -24,8 +24,7 @@ class company(models.Model):
    image = models.CharField(max_length=500, null=True, blank=True)  
    #category = models.ForeignKey(category, on_delete=None, null=True, blank=True)
    category = models.ManyToManyField(category)
-   produce = models.ManyToManyField(product, related_name="produce", blank=True)
-   replace = models.ManyToManyField(product, related_name="replace",  blank=True)
+   replace = models.CharField(max_length=1000, null=True, blank=True)
 
    def __str__(self):
        return self.name

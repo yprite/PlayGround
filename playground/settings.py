@@ -42,9 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_framework',
     'rest_framework_swagger',
     'bootstrap4',
+    'bootstrap_modal_forms',
+    'widget_tweaks',
+
     'django_crontab',
 
     'soccer',

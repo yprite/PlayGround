@@ -31,6 +31,82 @@ logger = logging.getLogger(__name__)
 
 # http://yuji.wordpress.com/2013/01/30/django-form-field-in-initial-data-requires-a-fieldfile-instance/
 
+from django.urls import reverse_lazy
+from bootstrap_modal_forms.generic import BSModalCreateView, BSModalUpdateView
+
+from .forms import AddReplaceForm
+
+import sys
+
+class AddReplaceView(BSModalUpdateView):
+    model = models.company
+    template_name = 'nojapan/update.html'
+    form_class = AddReplaceForm
+    success_message = 'Success: update'
+    success_url = reverse_lazy('nojapan:nojapan_index')
+
+    '''
+    def get_success_message(self, cleaned_data):
+        try:
+            product = models.product.objects.get(name=cleaned_data['name'])
+            if product:
+                company_id = self.kwargs.get('id')
+                company = models.company.objects.get(id=company_id)
+                replace, is_created = models.product.objects.get_or_create(name=cleaned_data['name'])
+                company.replace.add(replace)
+                company.save()
+        except Exception as E:
+            print ("%s : %s" % (sys._getframe().f_code, E))
+        instance = super(AddReplaceView, self).get_success_message(cleaned_data)
+        return instance
+    def dispatch(self, request, *args, **kwargs):
+        print ("A:",sys._getframe().f_code)
+        response = super(AddReplaceView, self).dispatch(request, *args, **kwargs)
+        print ("B:",sys._getframe().f_code)
+        return response
+    def get_success_url(self):
+        print ("A:",sys._getframe().f_code)
+        print ("B:",sys._getframe().f_code)
+        return self.success_url
+
+    def form_valid(self, form):
+        print ("A:",sys._getframe().f_code)
+        response = super(AddReplaceView, self).form_valid(form)
+        print ("B:",sys._getframe().f_code)
+        return response
+
+    def get_success_message(self, cleaned_data):
+        print ("A:",sys._getframe().f_code)
+        print (self._allowed_methods)
+        print (cleaned_data)
+        instance = super(AddReplaceView, self).get_success_message(cleaned_data)
+        print ("B:",sys._getframe().f_code)
+        return instance
+
+    def options(self, request, *args, **kwargs):
+        print ("A:",sys._getframe().f_code)
+        options = super(AddReplaceView, self).options(request, *args, **kwargs)
+        print ("B:",sys._getframe().f_code)
+        return options
+    
+    def get(self, request, *args, **kwargs):
+        print ("A:",sys._getframe().f_code)
+        instance = super(AddReplaceView, self).get(request, *args, **kwargs)
+        print ("B:",sys._getframe().f_code)
+        return instance
+    
+    def post(self, request, *args, **kwargs):
+        print ("A:",sys._getframe().f_code)
+        instance = super(AddReplaceView, self).post(request, *args, **kwargs)
+        print ("B:",sys._getframe().f_code)
+        return instance
+
+    def render_to_response(self, context, **response_kwargs): 
+        print ("A:",sys._getframe().f_code)
+        instance = super(AddReplaceView, self).render_to_response(context, **response_kwargs)
+        print ("B:",sys._getframe().f_code)
+        return instance
+    '''
 
 class NoJapanIdexPageView(TemplateView):
     template_name = "nojapan/index.html"
@@ -38,14 +114,24 @@ class NoJapanIdexPageView(TemplateView):
         context = super(NoJapanIdexPageView, self).get_context_data(**kwargs)
         context['categories'] = models.category.objects.all()
         context['companies'] = models.company.objects.all()
-        categories = []
+        company_categories = []
+        company_replaces = []
         for company in models.company.objects.all():
-            category_string = ""
+            categories = ""
+            replaces = []
             for category in company.category.all():
-                category_string = category_string + "#" + str(category.name) + " "
-            categories.append(category_string)
+                categories = categories + "#" + str(category.name) + " "
+            company_categories.append(categories)
 
-        context['company_categories'] = categories
+            if company.replace is None:
+                company_replaces.append([])
+            else:
+                for replace in str(company.replace).split(','):
+                    replaces.append(replace.strip()) 
+                company_replaces.append(replaces)
+
+        context['company_categories'] = company_categories
+        context['company_replaces'] = company_replaces
 
         context['company_ids'] = []
         for i in models.company.objects.values_list('id'):

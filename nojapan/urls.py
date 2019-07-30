@@ -20,6 +20,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.NoJapanIdexPageView.as_view(), name='nojapn_index'),
-    url(r'desc/(?P<id>[\w-]+)/$', views.description, name='nojapan_desc'),
+    url(r'^$', views.NoJapanIdexPageView.as_view(), name='nojapan_index'),
+    url(r'desc/(?P<id>\d+)/$', views.description, name='nojapan_desc'),
+    url(r'update_replace/(?P<pk>\d+)/$', views.AddReplaceView.as_view(), name='nojapan_update_replace'),
 ]
