@@ -121,7 +121,18 @@ class NewIndexPageView(TemplateView):
         for lmatch in matchs:
             try:
                 predict = models.MatchPredictVariables.objects.get(match=lmatch)
-                print ("%f %f %f %f" % (predict.h_x1, predict.h_x2, predict.h_x3, predict.h_x4))
+                if float(predict.h_x1) > 0.0:
+                    A = 0.4
+                    B = 0.3
+                    C = 0.2
+                    D = 0.1
+
+                    print (lmatch, lmatch.hscore, lmatch.ascore)
+                    print ((predict.h_x1*A + predict.h_x2*B + predict.h_x3*C + predict.h_x4*D)*100)
+                    print ((predict.a_x1*A + predict.a_x2*B + predict.a_x3*C + predict.a_x4*D)*100)
+                    print (predict.h_x1,predict.h_x2, predict.h_x3, predict.h_x4)
+                    print (predict.a_x1,predict.a_x2, predict.a_x3, predict.a_x4)
+                    print ("---------------------------------------------------------------------")
                 '''
                 print ("%s, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f" % (predict.match, predict.h_x1, predict.h_x2, predict.h_x3,
                     predict.h_x4, predict.h_x5, predict.h_x6, predict.a_x1, predict.a_x2,
@@ -130,12 +141,12 @@ class NewIndexPageView(TemplateView):
                 #a  : odd       - x1
                 #b  : recent    - x2 
                 #c  : history   - x3
-                #d  : rank      - x4
+                #d  : draw      - x4
 
 
                 #winnner define 
             except Exception as E:
-                print ("%s %s" % (lmatch, E))
+                pass
         
         #Order by date : 5 items
         #context['matchs'] = models.Matchs.objects.all()#order_by('-date')[:5]
