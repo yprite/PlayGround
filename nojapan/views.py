@@ -43,7 +43,7 @@ class AddReplaceView(BSModalUpdateView):
     template_name = 'nojapan/update.html'
     form_class = AddReplaceForm
     success_message = 'Success: update'
-    success_url = reverse_lazy('nojapan:nojapan_index')
+    success_url = reverse_lazy('nojapan_index')
 
     '''
     def get_success_message(self, cleaned_data):

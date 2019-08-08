@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
 from django.http import HttpResponse
+from django.urls import path
 
 from soccer import views as soccer_views
 from comingsoon import views as comingsoon_views
@@ -24,8 +25,14 @@ from nojapan import views as nojapan_views
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^robots.txt$',lambda r: HttpResponse("User-agent: *\nallow: /", content_type="text/plain")),
+    path('admin/', admin.site.urls),
+    path('robots.txt',lambda r: HttpResponse("User-agent: *\nallow: /", content_type="text/plain")),
+    path('', nojapan_views.NoJapanIdexPageView.as_view(), name="nojapn"),
+    path('nojapan/', include('nojapan.urls')),
+    path('chat/', include('chat.urls')),
+
+    #url(r'^admin/', admin.site.urls),
+    #url(r'^robots.txt$',lambda r: HttpResponse("User-agent: *\nallow: /", content_type="text/plain")),
 
     #url(r'', include('chat.urls', namespace='chat')),
     #url(r'', include('chat.urls', namespace='chat')),
@@ -41,10 +48,10 @@ urlpatterns = [
     #url(r"^pagination$", views.PaginationView.as_view(), name="pagination"),
     #url(r"^misc$", views.MiscView.as_view(), name="misc"),
 
-    url(r'^$', nojapan_views.NoJapanIdexPageView.as_view(), name="nojapn"),
-    url(r'nojapan/', include('nojapan.urls', namespace='nojapan')),
-    url(r'soccer/', include('soccer.urls', namespace='soccer')),
-    url(r'^goaccess/', include('goaccess.urls', namespace='goaccess')),
+    #url(r'^$', nojapan_views.NoJapanIdexPageView.as_view(), name="nojapn"),
+    #url(r'nojapan/', include('nojapan.urls', namespace='nojapan')),
+    #url(r'soccer/', include('soccer.urls', namespace='soccer')),
+    #url(r'^goaccess/', include('goaccess.urls', namespace='goaccess')),
     
     #url(r'^playground/soccer/', include('soccer.urls', namespace='soccer')),
 ]

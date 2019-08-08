@@ -100,7 +100,7 @@ image : https://cdn.clien.net/web/api/file/F01/8662931/2409f199ee2b22.png?w=780&
                             {% for replace in company_replaces|index:forloop.counter0 %}
                                 <button type="button" class="btn btn-success"> {{ replace }}</button>
                             {% endfor %}
-                            <button type="button" class="update-replace btn btn-primary" data-id="{% url 'nojapan:nojapan_update_replace' company.id %}">+</button>
+                            <button type="button" class="update-replace btn btn-primary" data-id="{% url 'nojapan_update_replace' company.id %}">+</button>
                         </div>
                     </div>
                  </div>
@@ -133,7 +133,7 @@ image : https://cdn.clien.net/web/api/file/F01/8662931/2409f199ee2b22.png?w=780&
             var list = {{ company_ids }};
             for (var i = 0; i < list.length; i++){
                 $.ajax({
-                    url : '{% url 'nojapan:nojapan_desc' id=12345%}'.replace('12345/', list[i]),
+                    url : '{% url 'nojapan_desc' id=12345%}'.replace('12345/', list[i]),
                     datatype: 'json',
                     success:function (data){
                         $('#'+'company_'+data.id).text(data.desc);

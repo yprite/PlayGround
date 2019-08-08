@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'playfun.kr', 'www.playfun.kr', 'nojapa
 # Application definition
 
 INSTALLED_APPS = [
-    #    'channels', # avoid to collision with apps:python3.5
+    'channels', #python3.5
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,8 +53,8 @@ INSTALLED_APPS = [
 
     'soccer',
     'comingsoon',
-    'nojapan'
-    #    'chat', : python3.5
+    'nojapan',
+    'chat', #python3.5
 ]
 
 MIDDLEWARE = [
@@ -209,9 +209,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# Apache access log file to be used in goaccess
+APACHE_LOG = '/var/log/apache2/playfun.log'
 
 # Channels
 ASGI_APPLICATION = 'playground.routing.application'
 
-# Apache access log file to be used in goaccess
-APACHE_LOG = '/var/log/apache2/playfun.log'
+CHANNEL_LAYERS = {
+        'default': {
+            'BACKEND': 'channels_redis.core.RedisChannelLayer',
+            'CONFIG': {
+                "hosts": [('127.0.0.1', 6379)],
+                },
+            },
+        }
