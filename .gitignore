@@ -1,5 +1,6 @@
 static/*
 ENV/*
+ENV36/*
 *.pyc
 *.swp
 *.swo
