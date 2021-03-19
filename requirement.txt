@@ -7,7 +7,7 @@ Django==1.11.17
 django-bootstrap4==0.0.7
 django-crontab==0.7.1
 django-rest-swagger==2.2.0
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 idna==2.8
 itypes==1.1.0
 Jinja2==2.10
